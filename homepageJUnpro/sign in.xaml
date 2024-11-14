@@ -1,0 +1,51 @@
+﻿<Window x:Class="homepageJUnpro.sign_in"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:homepageJUnpro"
+        mc:Ignorable="d"
+        Title="PinjemDong!" Height="500" Width="700" Background="#F9B8D9" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <!-- Background panel -->
+        <Border Background="White" CornerRadius="15" Padding="20" Margin="73,38,58,0" VerticalAlignment="Top">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10">
+
+                <!-- Title -->
+                <TextBlock Text="PinjemDong!" FontSize="24" FontWeight="Bold" Foreground="#A00047" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+                <!-- Toggle buttons (Sign Up / Log In) -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                    <Button Content="Sign up" Width="120" Height="30" Background="#A00047" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Margin="0,0,10,0"/>
+                    <Button Content="Log in" Width="120" Height="30" Background="White" Foreground="#A00047" FontWeight="Bold" BorderBrush="#A00047"/>
+                </StackPanel>
+
+                <!-- Form fields -->
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
+                    <TextBlock Text="Name" Margin="0,5,0,3" Foreground="Gray"/>
+                    <TextBox Name="NameBox" Height="25" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,5"/>
+
+                    <TextBlock Text="Email address" Margin="0,5,0,3" Foreground="Gray"/>
+                    <TextBox Name="EmailBox" Height="25" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,5"/>
+
+                    <TextBlock Text="Username" Margin="0,5,0,3" Foreground="Gray"/>
+                    <TextBox Name="UsernameBox" Height="25" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,5"/>
+
+                    <TextBlock Text="Password" Margin="0,5,0,3" Foreground="Gray"/>
+                    <PasswordBox Name="passwordBox" Height="25" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,10"/>
+
+                    <!-- Sign up button with rounded corners -->
+                    <Button Name="SignButton" Content="Sign up" Width="250" Height="35" Background="#A00047" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" HorizontalAlignment="Center" Click="SignButton_Click_1">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

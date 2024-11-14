@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "wBShq95ee98=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\INFINIX\\source\\repos\\homepageJUnpro\\homepageJUnpro\\homepageJUnpro.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\INFINIX\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\INFINIX\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\INFINIX\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\INFINIX\\.nuget\\packages\\npgsql\\8.0.5\\npgsql.8.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
