@@ -30,3 +30,36 @@ C:\Users\INFINIX\source\repos\homepageJUnpro\homepageJUnpro\obj\Debug\net8.0-win
 C:\Users\INFINIX\source\repos\homepageJUnpro\homepageJUnpro\obj\Debug\net8.0-windows\login.baml
 C:\Users\INFINIX\source\repos\homepageJUnpro\homepageJUnpro\obj\Debug\net8.0-windows\TambahBarang.baml
 C:\Users\INFINIX\source\repos\homepageJUnpro\homepageJUnpro\obj\Debug\net8.0-windows\TambahBarang.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.exe
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.deps.json
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.runtimeconfig.json
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.dll
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.pdb
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\bin\Debug\net8.0-windows\Npgsql.dll
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.csproj.AssemblyReference.cache
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\login.baml
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\MainWindow.baml
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\TambahBarang.baml
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\login.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\sign in.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\TambahBarang.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\App.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro_MarkupCompile.cache
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro_MarkupCompile.lref
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\sign in.baml
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.g.resources
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.AssemblyInfoInputs.cache
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.AssemblyInfo.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.csproj.CoreCompileInputs.cache
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.sourcelink.json
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepage.A5D65652.Up2Date
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.dll
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\refint\homepageJUnpro.dll
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.pdb
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.genruntimeconfig.cache
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\ref\homepageJUnpro.dll

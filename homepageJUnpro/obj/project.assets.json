@@ -236,23 +236,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\INFINIX\\.nuget\\packages\\": {},
+    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\INFINIX\\source\\repos\\homepageJUnpro\\homepageJUnpro\\homepageJUnpro.csproj",
+      "projectUniqueName": "D:\\Users\\LENOVO\\source\\repos\\PinjemDong\\homepageJUnpro\\homepageJUnpro.csproj",
       "projectName": "homepageJUnpro",
-      "projectPath": "C:\\Users\\INFINIX\\source\\repos\\homepageJUnpro\\homepageJUnpro\\homepageJUnpro.csproj",
-      "packagesPath": "C:\\Users\\INFINIX\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\INFINIX\\source\\repos\\homepageJUnpro\\homepageJUnpro\\obj\\",
+      "projectPath": "D:\\Users\\LENOVO\\source\\repos\\PinjemDong\\homepageJUnpro\\homepageJUnpro.csproj",
+      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\LENOVO\\source\\repos\\PinjemDong\\homepageJUnpro\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\INFINIX\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
