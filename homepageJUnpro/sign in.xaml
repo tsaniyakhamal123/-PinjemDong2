@@ -17,7 +17,7 @@
                 <!-- Toggle buttons (Sign Up / Log In) -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
                     <Button Content="Sign up" Width="120" Height="30" Background="#A00047" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Margin="0,0,10,0"/>
-                    <Button Content="Log in" Width="120" Height="30" Background="White" Foreground="#A00047" FontWeight="Bold" BorderBrush="#A00047"/>
+                    <Button Content="Log in" Width="120" Height="30" Background="White" Foreground="#A00047" FontWeight="Bold" BorderBrush="#A00047" Click="Button_Click"/>
                 </StackPanel>
 
                 <!-- Form fields -->

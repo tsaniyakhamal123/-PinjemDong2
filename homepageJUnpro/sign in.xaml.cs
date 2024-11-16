@@ -106,5 +106,12 @@ namespace homepageJUnpro
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            login loginPage = new login();
+            loginPage.Show();
+            this.Close();
+        }
     }
 }
