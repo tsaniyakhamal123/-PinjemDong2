@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\LENOVO\\source\\repos\\PinjemDong\\homepageJUnpro\\homepageJUnpro.csproj": {}
+    "C:\\Users\\USER\\Downloads\\Junpro WPF last\\homepageJUnpro\\homepageJUnpro.csproj": {}
   },
   "projects": {
-    "D:\\Users\\LENOVO\\source\\repos\\PinjemDong\\homepageJUnpro\\homepageJUnpro.csproj": {
+    "C:\\Users\\USER\\Downloads\\Junpro WPF last\\homepageJUnpro\\homepageJUnpro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\LENOVO\\source\\repos\\PinjemDong\\homepageJUnpro\\homepageJUnpro.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Junpro WPF last\\homepageJUnpro\\homepageJUnpro.csproj",
         "projectName": "homepageJUnpro",
-        "projectPath": "D:\\Users\\LENOVO\\source\\repos\\PinjemDong\\homepageJUnpro\\homepageJUnpro.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\LENOVO\\source\\repos\\PinjemDong\\homepageJUnpro\\obj\\",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Junpro WPF last\\homepageJUnpro\\homepageJUnpro.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Junpro WPF last\\homepageJUnpro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
