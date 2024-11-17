@@ -8,12 +8,14 @@ namespace homepageJUnpro
     public partial class DetailProduk : Window
     {
         private Barang _product; // Menyimpan data produk yang sedang ditampilkan
+        private int _userID;
 
-        public DetailProduk(Barang product)
+        public DetailProduk(Barang product, int userID)
         {
             InitializeComponent();
 
             _product = product; // Menyimpan data produk untuk digunakan di halaman checkout
+            _userID = userID;
             LoadProductDetails(product); // Menampilkan detail produk ke UI
         }
 
@@ -58,7 +60,7 @@ namespace homepageJUnpro
             try
             {
                 // Buka halaman checkout dengan mengirimkan data produk
-                var checkoutPage = new Checkout(_product);
+                var checkoutPage = new Checkout(_product, _userID);
                 checkoutPage.Show();
                 this.Close();
             }
