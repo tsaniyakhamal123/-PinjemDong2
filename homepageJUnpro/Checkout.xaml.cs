@@ -22,13 +22,13 @@ namespace homepageJUnpro
     public partial class Checkout : Window
     {
         public int _userId;
-        private int _barangId;
+        private Barang _barang;
         OrderCheckout order1 = new OrderCheckout(1); //jumlah minimal order adalah 1
-        public Checkout(int loggedInUserId, int barangID)
+        public Checkout(Barang barang, int loggedInUserId)
         {
             InitializeComponent();
             _userId = loggedInUserId;
-            _barangId = barangID;
+            _barang = barang;
             txt_jumlah.Text = order1._jumlahBarang.ToString();
         }
 
