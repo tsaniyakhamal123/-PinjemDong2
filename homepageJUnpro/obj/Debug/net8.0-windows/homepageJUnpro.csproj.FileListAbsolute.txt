@@ -159,3 +159,9 @@ D:\kuliah\semester 5\ProjectSepele\-PinjemDong2\homepageJUnpro\obj\Debug\net8.0-
 D:\kuliah\semester 5\ProjectSepele\-PinjemDong2\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.pdb
 D:\kuliah\semester 5\ProjectSepele\-PinjemDong2\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.genruntimeconfig.cache
 D:\kuliah\semester 5\ProjectSepele\-PinjemDong2\homepageJUnpro\obj\Debug\net8.0-windows\ref\homepageJUnpro.dll
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\AdminPage.baml
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\DetailProduk.baml
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\AdminPage.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\DetailProduk.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\EditProductPage.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\EditProductPage.baml
