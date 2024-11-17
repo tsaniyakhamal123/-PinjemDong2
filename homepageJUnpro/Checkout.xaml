@@ -97,8 +97,10 @@ Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold"
                                 <TextBlock x:Name="nominal_total" Text="Rp.XXX.000" FontWeight="Bold"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                                <ComboBox x:Name="comboBox_payMethod" Width="200" Margin="0,0,10,0">
+                                <ComboBox x:Name="comboBox_payMethod" Width="200" Margin="0,0,10,0" SelectedIndex="0">
                                     <ComboBoxItem Content="Pilih Metode Pembayaran"/>
+                                    <ComboBoxItem Content="Transfer"/>
+                                    <ComboBoxItem Content="Cash on Delivery"/>
                                 </ComboBox>
                                 <Button Content="Buat Pesanan" Background="#C2185B" Foreground="White" Width="120" Margin="90,0,0,0" Click="Order_Click"/>
                             </StackPanel>

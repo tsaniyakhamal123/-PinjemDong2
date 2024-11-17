@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("homepageJUnpro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e213f2a61ea18eb16c608a3464feabb5038fcc81")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbac484aeb352c98bb5c9fe0b023017605b3233e")]
 [assembly: System.Reflection.AssemblyProductAttribute("homepageJUnpro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("homepageJUnpro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

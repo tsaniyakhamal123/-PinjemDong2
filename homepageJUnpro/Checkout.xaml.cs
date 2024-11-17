@@ -25,12 +25,15 @@ namespace homepageJUnpro
     {
         public int _userId;
         private Barang _barang;
+        private int _barangId;
+        DateTime _dateToday;
         OrderCheckout order1 = new OrderCheckout(1); //jumlah minimal order adalah 1
         public Checkout(Barang barang, int loggedInUserId)
         {
             InitializeComponent();
             _userId = loggedInUserId;
             _barang = barang;
+            _barangId = barang.Id;
             LoadProductDetails(barang);
         }
 
@@ -72,13 +75,15 @@ namespace homepageJUnpro
             }
         }
 
-        private void CekHarga()
+        private void CekHarga(Barang product)
         {
-            order1.HitungHarga();
-            nominal_subtotal.Text = "Rp." + order1.Subtotal.ToString();
-            nominal_ongkir.Text = "Rp." + OrderCheckout.ongkir.ToString();
-            nominal_biayaLayanan.Text = "Rp." + OrderCheckout.biayaLayanan.ToString();
-            nominal_total.Text = "Rp." + order1._total.ToString();
+            order1._jumlahBarang = Convert.ToInt32(txt_jumlah.Text);
+            order1.inputHargaBarang(product.Price);
+            order1.HitungHarga(order1._jumlahBarang, product.Price);
+            nominal_subtotal.Text = $"Rp {order1.Subtotal:N0}";
+            nominal_ongkir.Text = $"Rp {OrderCheckout.ongkir:N0}";
+            nominal_biayaLayanan.Text = $"Rp {OrderCheckout.biayaLayanan:N0}";
+            nominal_total.Text = $"Rp {order1._total:N0}";
         }
 
         private void checkout_Load(object sender, EventArgs e)
@@ -86,40 +91,9 @@ namespace homepageJUnpro
             conn = new NpgsqlConnection(connString);
         }
 
-        private void Order_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                conn.Open();
-                sql = @"select * from st_checkout(:_nama_penerima,:_alamat_pengiriman,:_jumlah_barang,:_variasi,:_subtotal,:_ongkir,:_biaya_layanan,:_total_biaya,:_payMethod)";
-                cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("_nama_penerima", txt_namaPenerima.Text);
-                cmd.Parameters.AddWithValue("_alamat_pengiriman", txt_alamat.Text);
-                cmd.Parameters.AddWithValue("_jumlah_barang", int.Parse(txt_jumlah.Text));
-                cmd.Parameters.AddWithValue("_subtotal", order1.Subtotal.ToString());
-                cmd.Parameters.AddWithValue("_ongkir", OrderCheckout.ongkir.ToString());
-                cmd.Parameters.AddWithValue("_biaya_layanan", OrderCheckout.biayaLayanan.ToString());
-                cmd.Parameters.AddWithValue("_total_biaya", order1._total.ToString());
-                cmd.Parameters.AddWithValue("_payMethod", comboBox_payMethod.Items);
-                if ((int)cmd.ExecuteScalar() == 1)
-                {
-                    MessageBox.Show("Checkout Berhasil", "Well Done!", MessageBoxButton.OK, MessageBoxImage.Information);
-                    conn.Close();
-                    txt_namaPenerima.Text = txt_alamat.Text = null;
-                    History hist = new History(GetLoggedInUserId());
-                    hist.Show();
-                    this.Hide();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error:" + ex.Message, "FAIL!!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         private void Count_Click(object sender, EventArgs e)
         {
-            CekHarga();
+            CekHarga(_barang);
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
@@ -148,6 +122,66 @@ namespace homepageJUnpro
             login logout = new login();
             logout.Show();
             this.Close();
+        }
+
+        private void Order_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _dateToday = DateTime.Now.Date;
+                // Validasi input
+                if (string.IsNullOrWhiteSpace(txt_namaPenerima.Text) ||
+                    string.IsNullOrWhiteSpace(txt_alamat.Text) ||
+                    string.IsNullOrWhiteSpace(txt_jumlah.Text))
+                {
+                    MessageBox.Show("Please fill in all fields.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(comboBox_payMethod.Text) ||
+                    comboBox_payMethod.Text == "Pilih Metode Pembayaran")
+                {
+                    MessageBox.Show("Mohon pilih metode pembayaran", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                // Validasi angka
+                if (!int.TryParse(txt_jumlah.Text, out int jumlah) || jumlah <= 0)
+                {
+                    MessageBox.Show("Jumlah barang yang disewa harus positif.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    // Simpan ke database
+                    conn.Open();
+
+                    sql = @"INSERT INTO sewa_barang (renter_id, barang_id, rent_date, nama_penerima, alamat, rent_amount, total_paid, payment_option) " +
+                       "VALUES (@penyewa, @barang, @tanggal_sewa, @nama_penerima, @alamat_pengiriman, @jumlah_barang, @total_biaya, @payMethod)";
+                    cmd = new NpgsqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@penyewa", _userId);
+                    cmd.Parameters.AddWithValue("@barang", _barangId);
+                    cmd.Parameters.AddWithValue("@tanggal_sewa", _dateToday);
+                    cmd.Parameters.AddWithValue("@nama_penerima", txt_namaPenerima.Text.Trim());
+                    cmd.Parameters.AddWithValue("@alamat_pengiriman", txt_alamat.Text.Trim());
+                    cmd.Parameters.AddWithValue("@jumlah_barang", int.Parse(txt_jumlah.Text));
+                    cmd.Parameters.AddWithValue("@total_biaya", order1._total);
+                    cmd.Parameters.AddWithValue("@payMethod", comboBox_payMethod.Text.Trim());
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+
+                MessageBox.Show("Checkout Berhasil", "Well Done!", MessageBoxButton.OK, MessageBoxImage.Information);
+                txt_namaPenerima.Text = txt_alamat.Text = null;
+                History hist = new History(GetLoggedInUserId());
+                hist.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message, "FAIL!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
