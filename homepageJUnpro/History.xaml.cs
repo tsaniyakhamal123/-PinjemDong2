@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using homepageJUnpro; // Menambahkan namespace homepageJUnpro jika Login ada di sini.
+using Npgsql;
 
 namespace homepageJUnpro
 {

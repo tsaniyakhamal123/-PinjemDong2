@@ -64,16 +64,16 @@ Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold"
 
                                     <!-- Item Info -->
                                     <StackPanel Grid.Column="1" Margin="10,0">
-                                        <TextBlock Text="Nama Barang yang Disewa" FontSize="14" FontWeight="SemiBold" />
-                                        <TextBlock Text="Jumlah Barang" FontSize="12" Foreground="#777" />
-                                        <TextBlock Text="Harga" FontSize="12" Foreground="#777" />
+                                        <TextBlock x:Name="productName" Text="Nama Barang yang Disewa" FontSize="14" FontWeight="SemiBold" />
+                                        <TextBlock x:Name="quantity" Text="Jumlah Barang" FontSize="12" Foreground="#777" />
+                                        <TextBlock x:Name="rentDate" Text="Tanggal" FontSize="12" Foreground="#777" />
                                     </StackPanel>
 
                                     <!-- Actions -->
                                     <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Total Pesanan:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" />
-                                            <TextBlock Text="RP XXXX" FontSize="14" HorizontalAlignment="Right" Margin="15,0,0,0"/>
+                                            <TextBlock x:Name="txt_totalPrice" Text="Total Pesanan:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" />
+                                            <TextBlock x:Name="rentPrice" Text="RP XXXX" FontSize="14" HorizontalAlignment="Right" Margin="15,0,0,0"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                             <Button x:Name="ReviewButton" Content="Beri Ulasan" Background="#F6CAC9" Width="75" Margin="5,0" Click="ReviewButton_Click" />

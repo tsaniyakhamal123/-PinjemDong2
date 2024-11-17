@@ -2,6 +2,7 @@
 using PinjemDong;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Npgsql;
 
 namespace homepageJUnpro
 {
@@ -29,7 +31,7 @@ namespace homepageJUnpro
             InitializeComponent();
             _userId = loggedInUserId;
             _barang = barang;
-            txt_jumlah.Text = order1._jumlahBarang.ToString();
+            LoadProductDetails(barang);
         }
 
         private int GetLoggedInUserId()
@@ -41,6 +43,34 @@ namespace homepageJUnpro
         string connString = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong";
         public static NpgsqlCommand cmd;
         private string sql = null;
+
+
+        // Menampilkan detail produk
+        private void LoadProductDetails(Barang product)
+        {
+            txt_jumlah.Text = order1._jumlahBarang.ToString();
+            ProductName.Text = product.Name;
+            ProductPrice.Text = $"Rp {product.Price:N0}";
+
+            // Load gambar produk
+            if (!string.IsNullOrEmpty(product.ImagePath))
+            {
+                try
+                {
+                    var imageData = Convert.FromBase64String(product.ImagePath);
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.StreamSource = new MemoryStream(imageData);
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
+                    ProductImage.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading image: {ex.Message}");
+                }
+            }
+        }
 
         private void CekHarga()
         {
@@ -66,7 +96,6 @@ namespace homepageJUnpro
                 cmd.Parameters.AddWithValue("_nama_penerima", txt_namaPenerima.Text);
                 cmd.Parameters.AddWithValue("_alamat_pengiriman", txt_alamat.Text);
                 cmd.Parameters.AddWithValue("_jumlah_barang", int.Parse(txt_jumlah.Text));
-                cmd.Parameters.AddWithValue("_variasi", lbl_variasi.Text);
                 cmd.Parameters.AddWithValue("_subtotal", order1.Subtotal.ToString());
                 cmd.Parameters.AddWithValue("_ongkir", OrderCheckout.ongkir.ToString());
                 cmd.Parameters.AddWithValue("_biaya_layanan", OrderCheckout.biayaLayanan.ToString());

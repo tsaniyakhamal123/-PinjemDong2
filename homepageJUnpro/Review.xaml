@@ -16,11 +16,11 @@
 
                 <!-- Deskripsi Barang -->
                 <TextBlock Text="Deskripsikan Produk" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                <TextBox x:Name="NameTB" Width="350" Height="30" Margin="0,0,0,10"/>
+                <TextBox x:Name="descTB" Width="350" Height="30" Margin="0,0,0,10"/>
 
                 <!-- Beri Nilai -->
                 <TextBlock Text="Beri Nilai (1-10)" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                <TextBox x:Name="stockTB" Width="350" Height="30" Margin="0,0,0,10"/>
+                <TextBox x:Name="scoreTB" Width="350" Height="30" Margin="0,0,0,10"/>
 
                 <!-- Tombol Add Gambar -->
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,20">
