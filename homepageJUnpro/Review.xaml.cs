@@ -15,17 +15,15 @@ using System.Windows.Shapes;
 namespace homepageJUnpro
 {
     /// <summary>
-    /// Interaction logic for History.xaml
+    /// Interaction logic for Review.xaml
     /// </summary>
-    public partial class History : Window
+    public partial class Review : Window
     {
         public int _userId;
-        public int _orderID;
-        public int _barangID;
-        public History(int loggedInUserId)
+        public Review(int userID, int orderID)
         {
             InitializeComponent();
-            _userId = loggedInUserId;
+            _userId = userID;
         }
 
         private int GetLoggedInUserId()
@@ -35,15 +33,8 @@ namespace homepageJUnpro
 
         private void ReviewButton_Click(object sender, RoutedEventArgs e)
         {
-            Review ulasan = new Review(GetLoggedInUserId(), _orderID);
-            ulasan.Show();
-            this.Hide();
-        }
-
-        private void RerentButton_Click(object sender, RoutedEventArgs e)
-        {
-            Checkout CO = new Checkout(GetLoggedInUserId(), _barangID);
-            CO.Show();
+            History hist = new History(GetLoggedInUserId());
+            hist.Show();
             this.Hide();
         }
     }
