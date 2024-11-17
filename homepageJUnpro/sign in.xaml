@@ -8,7 +8,7 @@
         Title="PinjemDong!" Height="500" Width="700" Background="#ECD4D4" WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- Background panel -->
-        <Border Background="White" CornerRadius="15" Padding="20" Margin="73,38,58,0" VerticalAlignment="Top">
+        <Border Background="White" CornerRadius="15" Padding="20" Margin="73,10,58,0" VerticalAlignment="Top">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10">
 
                 <!-- Title -->
@@ -22,17 +22,29 @@
 
                 <!-- Form fields -->
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
+                    <!-- Name -->
                     <TextBlock Text="Name" Margin="0,5,0,3" Foreground="Gray"/>
-                    <TextBox Name="NameBox" Height="25" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,5" Height="35">
+                        <TextBox Name="NameBox" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Border>
 
+                    <!-- Email address -->
                     <TextBlock Text="Email address" Margin="0,5,0,3" Foreground="Gray"/>
-                    <TextBox Name="EmailBox" Height="25" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,5" Height="35">
+                        <TextBox Name="EmailBox" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Border>
 
+                    <!-- Username -->
                     <TextBlock Text="Username" Margin="0,5,0,3" Foreground="Gray"/>
-                    <TextBox Name="UsernameBox" Height="25" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,5" Height="35">
+                        <TextBox Name="UsernameBox" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Border>
 
+                    <!-- Password -->
                     <TextBlock Text="Password" Margin="0,5,0,3" Foreground="Gray"/>
-                    <PasswordBox Name="passwordBox" Height="25" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,10"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Margin="0,0,0,10" Height="35">
+                        <PasswordBox Name="passwordBox" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Border>
 
                     <!-- Sign up button with rounded corners -->
                     <Button Name="SignButton" Content="Sign up" Width="250" Height="35" Background="#A00047" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" HorizontalAlignment="Center" Click="SignButton_Click_1">

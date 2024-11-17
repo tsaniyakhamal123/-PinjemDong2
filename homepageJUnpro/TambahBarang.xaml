@@ -1,52 +1,89 @@
 ﻿<Window x:Class="homepageJUnpro.TambahBarang"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Tambah Barang" Height="600" Width="800" Background="#f3dada">
+        Title="Tambah Barang" Height="700" Width="800" Background="#f3dada">
     <Grid>
-        <Border Background="White" Width="404" Height="574" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="10">
-            <StackPanel Margin="20">
+        <!-- Tombol Back di bagian atas kiri -->
+        <Button x:Name="Balik" Content="←" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0"
+                Background="White" Foreground="Black" Click="BackButton_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Fill="{TemplateBinding Background}" Stroke="Black" StrokeThickness="2"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
-                <!-- Judul -->
-                <TextBlock Text="PinjemDong!" FontSize="24" FontWeight="Bold" Foreground="#c25987" HorizontalAlignment="Center" Margin="0,20,0,5"/>
-                <TextBlock Text="Menambahkan Barang" FontSize="16" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        <!-- Border utama untuk form -->
+        <Border Background="White" Width="404" Height="674" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10">
+            <!-- ScrollViewer untuk memastikan semua konten dapat digulir -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Width="430">
+                <StackPanel Margin="20">
 
-                <!-- Nama Barang -->
-                <TextBlock Text="Nama Barang" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                <TextBox x:Name="NameTB" Width="350" Height="30" Margin="0,0,0,10"/>
+                    <!-- Judul -->
+                    <TextBlock Text="PinjemDong!" FontSize="24" FontWeight="Bold" Foreground="#c25987" HorizontalAlignment="Center" Margin="0,20,0,5"/>
+                    <TextBlock Text="Menambahkan Barang" FontSize="16" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
-                <!-- Stock -->
-                <TextBlock Text="Stock" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                <TextBox x:Name="stockTB" Width="350" Height="30" Margin="0,0,0,10"/>
-
-                <!-- Kategori -->
-                <TextBlock Text="Kategori" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                <TextBox x:Name="kategoriTB" Width="350" Height="30" Margin="0,0,0,10"/>
-
-                <!-- Harga -->
-                <TextBlock Text="Harga" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                <TextBox x:Name="hargaTB" Width="350" Height="30" Margin="0,0,0,20"/>
-
-                <!-- Tombol Add Gambar -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,20">
-                    <Border x:Name="pictureBox1" Width="100" Height="100" BorderBrush="Black" BorderThickness="1" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <!-- Menampilkan gambar yang dipilih dari BrowseButton -->
-                        <Image x:Name="imageControl" Width="100" Height="100"/>
+                    <!-- Nama Barang -->
+                    <TextBlock Text="Nama Barang" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="350" Height="30" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <TextBox x:Name="NameTB" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </Border>
-                    <Button x:Name="BrowseButton" Content="Add Gambar" Width="100" Height="30" Margin="10,35,0,0" Background="#e0e0e0" Foreground="Black" Click="BrowseButton_Click"/>
+
+                    <!-- Stock -->
+                    <TextBlock Text="Stock" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="350" Height="30" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <TextBox x:Name="stockTB" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <!-- Kategori -->
+                    <TextBlock Text="Kategori" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="350" Height="30" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <TextBox x:Name="kategoriTB" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <!-- Harga -->
+                    <TextBlock Text="Harga" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="350" Height="30" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <TextBox x:Name="hargaTB" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <!-- Deskripsi -->
+                    <TextBlock Text="Deskripsi" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="350" Height="60" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <TextBox x:Name="deskripsiTB" Background="Transparent" BorderThickness="0" TextWrapping="Wrap" AcceptsReturn="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <!-- Alamat -->
+                    <TextBlock Text="Alamat" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="350" Height="30" HorizontalAlignment="Center" Margin="0,0,0,20">
+                        <TextBox x:Name="alamatTB" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <!-- Tombol Add Gambar -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                        <Border x:Name="pictureBox1" Width="100" Height="100" BorderBrush="Black" BorderThickness="1" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <!-- Menampilkan gambar yang dipilih dari BrowseButton -->
+                            <Image x:Name="imageControl" Width="100" Height="100"/>
+                        </Border>
+                        <Button x:Name="BrowseButton" Content="Add Gambar" Width="100" Height="30" Margin="10,35,0,0" Background="#e0e0e0" Foreground="Black" Click="BrowseButton_Click"/>
+                    </StackPanel>
+
+                    <!-- Tombol Tambah Barang -->
+                    <Button x:Name="addButton" Content="Tambah Barang" Width="350" Height="40" Background="#f3a7b2" Foreground="White" FontSize="16" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Center" Click="AddButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
                 </StackPanel>
-
-                <!-- Tombol Tambah Barang -->
-                <Button x:Name="addButton" Content="Tambah Barang" Width="350" Height="40" Background="#f3a7b2" Foreground="White" FontSize="16" FontWeight="Bold" BorderBrush="Transparent" HorizontalAlignment="Center" Click="AddButton_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-
-            </StackPanel>
+            </ScrollViewer>
         </Border>
     </Grid>
 </Window>

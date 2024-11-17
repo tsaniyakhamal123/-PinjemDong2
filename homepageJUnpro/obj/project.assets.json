@@ -236,23 +236,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
+    "C:\\Users\\INFINIX\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Junpro today\\homepageJUnpro\\homepageJUnpro.csproj",
+      "projectUniqueName": "D:\\kuliah\\semester 5\\ProjectSepele\\-PinjemDong2\\homepageJUnpro\\homepageJUnpro.csproj",
       "projectName": "homepageJUnpro",
-      "projectPath": "C:\\Users\\USER\\Downloads\\Junpro today\\homepageJUnpro\\homepageJUnpro.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Downloads\\Junpro today\\homepageJUnpro\\obj\\",
+      "projectPath": "D:\\kuliah\\semester 5\\ProjectSepele\\-PinjemDong2\\homepageJUnpro\\homepageJUnpro.csproj",
+      "packagesPath": "C:\\Users\\INFINIX\\.nuget\\packages\\",
+      "outputPath": "D:\\kuliah\\semester 5\\ProjectSepele\\-PinjemDong2\\homepageJUnpro\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\INFINIX\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -261,7 +261,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

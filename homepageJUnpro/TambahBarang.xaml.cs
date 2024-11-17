@@ -50,36 +50,55 @@ namespace homepageJUnpro
         {
             try
             {
-                // Pastikan data yang diperlukan sudah terisi
-                if (string.IsNullOrEmpty(NameTB.Text) ||
-                    string.IsNullOrEmpty(stockTB.Text) ||
-                    string.IsNullOrEmpty(kategoriTB.Text) ||
-                    string.IsNullOrEmpty(hargaTB.Text))
+                // Validasi input
+                if (string.IsNullOrWhiteSpace(NameTB.Text) ||
+                    string.IsNullOrWhiteSpace(stockTB.Text) ||
+                    string.IsNullOrWhiteSpace(kategoriTB.Text) ||
+                    string.IsNullOrWhiteSpace(hargaTB.Text) ||
+                    string.IsNullOrWhiteSpace(deskripsiTB.Text) ||
+                    string.IsNullOrWhiteSpace(alamatTB.Text))
                 {
                     MessageBox.Show("Please fill in all fields.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
-                // Konversi data input
-                string namaBarang = NameTB.Text;
-                int stock = int.Parse(stockTB.Text);
-                string kategori = kategoriTB.Text;
-                decimal harga = decimal.Parse(hargaTB.Text);
+                // Validasi angka
+                if (!int.TryParse(stockTB.Text, out int stock) || stock <= 0)
+                {
+                    MessageBox.Show("Stock harus berupa angka positif.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
+                if (!decimal.TryParse(hargaTB.Text, out decimal harga) || harga <= 0)
+                {
+                    MessageBox.Show("Harga harus berupa angka positif.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                // Validasi gambar
+                if (imageBytes == null || imageBytes.Length == 0)
+                {
+                    MessageBox.Show("Silakan pilih gambar terlebih dahulu.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                // Simpan ke database
                 using (var conn = new NpgsqlConnection(connString))
                 {
                     conn.Open();
-                    string insertQuery = "INSERT INTO barang (owner_id, nama_barang, stock, ulasan, kategori, harga, gambar) " +
-                                         "VALUES (@ownerId, @namaBarang, @stock, @ulasan, @kategori, @harga, @gambar)";
+                    string insertQuery = "INSERT INTO barang (owner_id, nama_barang, stock, ulasan, kategori, harga, deskripsi, alamat, gambar) " +
+                                         "VALUES (@ownerId, @namaBarang, @stock, @ulasan, @kategori, @harga, @deskripsi, @alamat, @gambar)";
 
                     using (var cmd = new NpgsqlCommand(insertQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@ownerId", userId); // gunakan userId sebagai owner_id
-                        cmd.Parameters.AddWithValue("@namaBarang", namaBarang);
+                        cmd.Parameters.AddWithValue("@ownerId", userId);
+                        cmd.Parameters.AddWithValue("@namaBarang", NameTB.Text.Trim());
                         cmd.Parameters.AddWithValue("@stock", stock);
-                        cmd.Parameters.AddWithValue("@ulasan", ""); // Placeholder untuk 'ulasan'
-                        cmd.Parameters.AddWithValue("@kategori", kategori);
+                        cmd.Parameters.AddWithValue("@ulasan", ""); // Placeholder untuk ulasan
+                        cmd.Parameters.AddWithValue("@kategori", kategoriTB.Text.Trim());
                         cmd.Parameters.AddWithValue("@harga", harga);
+                        cmd.Parameters.AddWithValue("@deskripsi", deskripsiTB.Text.Trim());
+                        cmd.Parameters.AddWithValue("@alamat", alamatTB.Text.Trim());
                         cmd.Parameters.AddWithValue("@gambar", imageBytes);
 
                         cmd.ExecuteNonQuery();
@@ -93,6 +112,7 @@ namespace homepageJUnpro
                 MessageBox.Show("Error adding item: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -108,6 +128,14 @@ namespace homepageJUnpro
 
                 MessageBox.Show("Image selected successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            int loggedInUserId = userId; // Ambil ID user yang sudah ada
+            MainWindow homepage = new MainWindow(loggedInUserId);
+            homepage.Show();
+            this.Close();
         }
     }
 }

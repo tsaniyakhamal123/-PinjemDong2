@@ -3,40 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Login" Height="450" Width="700" Background="#ECD4D4">
     <Grid>
-        <Border Background="White" CornerRadius="15" Padding="20" Margin="185,0,185,0" VerticalAlignment="Center" Height="363">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10">
-
-                <TextBlock Text="PinjemDong!" FontSize="24" FontWeight="Bold" Foreground="#A00047" HorizontalAlignment="Center" Margin="0,0,0,10" Height="64"/>
+        <Border Background="White" CornerRadius="15" Padding="20" Margin="185,0,185,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="363" Width="320">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
+                <!-- Title -->
+                <TextBlock Text="PinjemDong!" FontSize="24" FontWeight="Bold" Foreground="#A00047" HorizontalAlignment="Center" Margin="0,0,0,15"/>
 
                 <!-- Toggle buttons (Sign Up / Log In) -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,1">
-                    <Button Content="Sign up" Width="120" Height="30" Background="White" Foreground="#A00047" FontWeight="Bold" BorderBrush="#AD336D" Margin="0,0,10,0" FontFamily="Segoe UI Black" Click="SignUpButton_Click"/>
-                    <Button Content="Log in" Width="120" Height="30" Background="#A00047" Foreground="White"  FontWeight="Bold" BorderBrush="{x:Null}" FontFamily="Segoe UI Black" Click="LoginButton_Click"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,15">
+                    <Button Content="Sign up" Width="120" Height="35" Background="White" Foreground="#A00047" FontWeight="Bold" BorderBrush="#AD336D" Margin="0,0,10,0" FontFamily="Segoe UI Black" Click="SignUpButton_Click"/>
+                    <Button Content="Log in" Width="120" Height="35" Background="#A00047" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" FontFamily="Segoe UI Black" Click="LoginButton_Click"/>
                 </StackPanel>
 
                 <!-- Form fields -->
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
-                    <TextBlock Text="Username" Margin="15,5,10,10" Foreground="Gray"/>
-                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="280" Height="25" Margin="0,0,0,5">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="280">
+                    <!-- Username -->
+                    <TextBlock Text="Username" Margin="0,0,0,5" Foreground="Gray" HorizontalAlignment="Left"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="280" Height="35" Margin="0,0,0,15">
                         <TextBox x:Name="usernameBox" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </Border>
 
-                    <TextBlock Text="Password" Margin="10,5,0,3" Foreground="Gray"/>
-                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="280" Height="25" Margin="0,0,0,30">
+                    <!-- Password -->
+                    <TextBlock Text="Password" Margin="0,0,0,5" Foreground="Gray" HorizontalAlignment="Left"/>
+                    <Border CornerRadius="10" BorderBrush="#D3D3D3" BorderThickness="1" Width="280" Height="35" Margin="0,0,0,25">
                         <PasswordBox x:Name="PasswordBox" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     </Border>
-
-                    <!-- Log in button with rounded corners -->
-                    <Button Name="LoginButton" Content="Log in" Width="250" Height="35" Background="#A00047" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" HorizontalAlignment="Center" Click="LoginButton_Click">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="15">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
                 </StackPanel>
+
+                <!-- Log in button -->
+                <Button Name="LoginButton" Content="Log in" Width="280" Height="40" Background="#A00047" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" HorizontalAlignment="Center" Margin="0,10,0,0" Click="LoginButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </StackPanel>
         </Border>
     </Grid>
