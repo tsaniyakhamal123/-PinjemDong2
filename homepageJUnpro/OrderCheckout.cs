@@ -12,14 +12,14 @@ namespace PinjemDong
         public string _namaPenerima;
         public string _alamat;
         public string _payMethod;
-        public const int biayaLayanan = 5000;
-        public const int ongkir = 10000;
+        public const decimal biayaLayanan = 5000;
+        public const decimal ongkir = 10000;
         public int _jumlahBarang;
-        private int _hargaBarang;
-        public int _subtotal;
-        public int _total;
+        private decimal _hargaBarang;
+        public decimal _subtotal;
+        public decimal _total;
 
-        public int Subtotal { get
+        public decimal Subtotal { get
             {
                 return _subtotal;
             }
@@ -35,10 +35,18 @@ namespace PinjemDong
             _jumlahBarang = jumlahBarang;
         }
 
-        public void HitungHarga()
+        public void inputHargaBarang(decimal price) 
         {
+            _hargaBarang = price;
+        }
+
+        public void HitungHarga(int jumlahBarang, decimal price)
+        {
+            decimal checkoutAmount = Convert.ToDecimal(jumlahBarang);
+            _hargaBarang = price;
+            _subtotal = checkoutAmount * _hargaBarang;
             _total = 0;
-            _total = Subtotal + ongkir + biayaLayanan;
+            _total = _subtotal + ongkir + biayaLayanan;
         }
     }
 }
