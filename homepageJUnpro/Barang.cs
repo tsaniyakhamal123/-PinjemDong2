@@ -12,5 +12,7 @@ namespace homepageJUnpro
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string ImagePath { get; set; }
+        public int Stock { get; set; } // Tambahkan properti Stock
+
     }
 }

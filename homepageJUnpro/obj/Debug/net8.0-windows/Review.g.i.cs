@@ -101,7 +101,7 @@ namespace homepageJUnpro {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/homepageJUnpro;V1.0.0.0;component/review.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/homepageJUnpro;component/review.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Review.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

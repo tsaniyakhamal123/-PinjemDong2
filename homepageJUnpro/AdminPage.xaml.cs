@@ -10,17 +10,16 @@ using Npgsql;
 
 namespace homepageJUnpro
 {
-    public partial class MainWindow : Window
+    public partial class AdminPage : Window
     {
-        private int _userId;
         private string connstring = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong";
         public ObservableCollection<Barang> Barangg { get; set; }
 
-        public MainWindow(int loggedInUserId)
+        public AdminPage()
         {
             InitializeComponent();
-            _userId = loggedInUserId; // Menyimpan UserId pengguna yang login
-            Barangg = new ObservableCollection<Barang>(); // ObservableCollection untuk barang
+            Barangg = new ObservableCollection
+    <Barang>(); // ObservableCollection untuk barang
             DataContext = this; // Bind ke data context
             LoadProducts(); // Muat barang dari database
         }
@@ -63,7 +62,8 @@ namespace homepageJUnpro
         }
 
         // Method untuk menampilkan data barang di UI
-        private void DisplayProducts(ObservableCollection<Barang> products)
+        private void DisplayProducts(ObservableCollection
+        <Barang> products)
         {
             ItemsPanel.Children.Clear();
 
@@ -78,31 +78,31 @@ namespace homepageJUnpro
         {
             var border = new Border
             {
-                Width = 150,
-                Height = 220,
+                Width = 600, // Adjusted width
+                Height = 150, // Adjusted height
                 Margin = new Thickness(10),
                 CornerRadius = new CornerRadius(15),
                 Background = Brushes.White,
                 BorderBrush = new SolidColorBrush(Color.FromRgb(230, 183, 185)),
                 BorderThickness = new Thickness(1),
-                Cursor = Cursors.Hand // Menambahkan tampilan kursor tangan
+                Cursor = Cursors.Hand
             };
-
-            border.MouseLeftButtonDown += (s, e) => OpenDetailPage(product);
 
             var stackPanel = new StackPanel
             {
+                Orientation = Orientation.Horizontal, // Horizontal layout
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center
             };
 
+            // Gambar produk
             var imageBorder = new Border
             {
                 Width = 100,
                 Height = 100,
                 Background = new SolidColorBrush(Color.FromRgb(242, 242, 242)),
                 CornerRadius = new CornerRadius(10),
-                Margin = new Thickness(0, 10, 0, 10)
+                Margin = new Thickness(0, 10, 10, 10)
             };
 
             var image = new Image
@@ -133,81 +133,139 @@ namespace homepageJUnpro
             imageBorder.Child = image;
             stackPanel.Children.Add(imageBorder);
 
+            // Item name
             var nameTextBlock = new TextBlock
             {
                 Text = product.Name,
                 FontSize = 14,
                 Foreground = new SolidColorBrush(Color.FromRgb(230, 183, 185)),
                 FontWeight = FontWeights.Bold,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(0, 5, 0, 0)
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(10, 5, 10, 5)
             };
             stackPanel.Children.Add(nameTextBlock);
 
+            // Item price
             var priceTextBlock = new TextBlock
             {
                 Text = $"Rp {product.Price:N0}",
                 FontSize = 14,
                 Foreground = Brushes.Black,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(0, 5, 0, 0)
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(10, 5, 10, 5)
             };
             stackPanel.Children.Add(priceTextBlock);
 
+            // Item stock
             var stockTextBlock = new TextBlock
             {
-                Text = $"Stok: {product.Stock}", // Menampilkan stok produk
+                Text = $"Stok: {product.Stock}",
                 FontSize = 12,
                 Foreground = Brushes.Gray,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(0, 5, 0, 0)
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(10, 5, 10, 5)
             };
             stackPanel.Children.Add(stockTextBlock);
 
+            // Edit Button (Image-based)
+            var editButton = new Button
+            {
+                Width = 40,
+                Height = 40,
+                Margin = new Thickness(10),
+                Background = Brushes.Transparent,
+                BorderBrush = Brushes.Transparent,
+                Cursor = Cursors.Hand
+            };
+
+            // Create Image for Edit
+            var editImage = new Image
+            {
+                Source = new BitmapImage(new Uri(@"C:\Users\USER\Downloads\Junpro today\homepageJUnpro\Resource\Edit.png")), // Path to your Edit icon
+                Stretch = Stretch.Uniform,
+                Width = 20,
+                Height = 20
+            };
+
+            editButton.Content = editImage;
+            editButton.Click += (s, e) => EditProduct(product);
+
+            // Delete Button (Image-based)
+            var deleteButton = new Button
+            {
+                Width = 40,
+                Height = 40,
+                Margin = new Thickness(10),
+                Background = Brushes.Transparent,
+                BorderBrush = Brushes.Transparent,
+                Cursor = Cursors.Hand
+            };
+
+            // Create Image for Delete
+            var deleteImage = new Image
+            {
+                Source = new BitmapImage(new Uri(@"C:\Users\USER\Downloads\Junpro today\homepageJUnpro\Resource\Trash 2.png")), // Path to your Delete icon
+                Stretch = Stretch.Uniform,
+                Width = 20,
+                Height = 20
+            };
+
+            deleteButton.Content = deleteImage;
+            deleteButton.Click += (s, e) => DeleteProduct(product);
+
+            // Add the image buttons to the stack panel
+            stackPanel.Children.Add(editButton);
+            stackPanel.Children.Add(deleteButton);
+
+            // Attach the stack panel to the border
             border.Child = stackPanel;
             return border;
         }
 
         // Membuka halaman detail barang
-        private void OpenDetailPage(Barang product)
+        private void EditProduct(Barang product)
         {
-            var detailPage = new DetailProduk(product);
-            detailPage.Show();
+            var EditProductPage = new EditProductPage();
+            EditProductPage.Show();
             this.Close();
         }
 
-        // Event untuk tombol "Tambah Barang"
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        // Fungsi Delete Product
+        private void DeleteProduct(Barang product)
         {
-            TambahBarang addBarangPage = new TambahBarang(_userId);
-            addBarangPage.Show();
-            this.Close();
+            var result = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    using (var connection = new NpgsqlConnection(connstring))
+                    {
+                        connection.Open();
+                        string query = "DELETE FROM barang WHERE barang_id = @Id";
+                        using (var cmd = new NpgsqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", product.Id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Hapus produk dari ObservableCollection dan tampilkan ulang produk
+                    Barangg.Remove(product);
+                    MessageBox.Show("Product deleted successfully.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error deleting product: {ex.Message}");
+                }
+            }
         }
 
-        // Event untuk tombol "Log Out"
+        // Event untuk tombol Log Out
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            login loginPage = new login();
+            var loginPage = new login();
             loginPage.Show();
             this.Close();
-        }
-
-        // Event untuk pencarian
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            string searchQuery = SearchBox.Text.Trim().ToLower();
-
-            if (string.IsNullOrEmpty(searchQuery))
-            {
-                DisplayProducts(Barangg);
-            }
-            else
-            {
-                var filteredProducts = new ObservableCollection<Barang>(
-                    Barangg.Where(product => product.Name.ToLower().Contains(searchQuery)));
-
-                DisplayProducts(filteredProducts);
-            }
         }
     }
 }
