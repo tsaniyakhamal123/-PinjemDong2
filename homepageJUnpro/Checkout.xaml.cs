@@ -38,7 +38,7 @@ namespace homepageJUnpro
         }
 
         private NpgsqlConnection conn;
-        string connString = "Host=localhost;Username=postgres;Password=nasywa;Database=PinjemDong";
+        string connString = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong";
         public static NpgsqlCommand cmd;
         private string sql = null;
 

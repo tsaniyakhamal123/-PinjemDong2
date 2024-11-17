@@ -11,7 +11,7 @@ namespace homepageJUnpro
     public partial class sign_in : Window
     {
         private NpgsqlConnection conn;
-        private string connstring = "Host=localhost;Port=5432;Username=postgres;Password=ininiya123;Database=JunproBener";
+        private string connstring = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong";
 
         public sign_in()
         {
