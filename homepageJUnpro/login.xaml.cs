@@ -8,7 +8,7 @@ namespace homepageJUnpro
     public partial class login : Window
     {
         // Connection string to PostgreSQL database
-        private string connstring = "Host=localhost;Port=5432;Username=postgres;Password=ininiya123;Database=JunproBener";
+        private string connstring = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong";
 
         public login()
         {

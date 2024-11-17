@@ -93,7 +93,7 @@ namespace homepageJUnpro {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/homepageJUnpro;V1.0.0.0;component/sign%20in.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/homepageJUnpro;component/sign%20in.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\sign in.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
