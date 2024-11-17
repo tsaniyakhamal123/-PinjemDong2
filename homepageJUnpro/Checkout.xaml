@@ -60,18 +60,17 @@ Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold"
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="150"/>
                                 </Grid.ColumnDefinitions>
-                                <Image Source="/Resource/default-image.png" Width="50" Height="50" Margin="5"/>
+                                <Image x:Name="ProductImage" Source="/Resource/default-image.png" Width="50" Height="50" Margin="5"/>
                                 <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                                    <TextBlock Text="Nama Barang"/>
-                                    <TextBlock x:Name="lbl_variasi" Text="Variasi"/>
-                                    <TextBlock Text="Harga"/>
-                                </StackPanel>
-                                <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Left">
-                                    <StackPanel Orientation="Horizontal" Width="150" Margin="0,0,0,5">
+                                    <TextBlock x:Name="ProductName" Text="Nama Barang"/>
+                                    <TextBlock x:Name="ProductPrice" Text="Harga"/>
+                                    <StackPanel Orientation="Horizontal" Width="150" Margin="0,0,0,5" HorizontalAlignment="Left">
                                         <TextBlock Text="Jumlah Barang :" Width="100" Height="19"/>
                                         <TextBox x:Name="txt_jumlah" Width="45" Height="15" Margin="0,5,0,5" HorizontalAlignment="Left"/>
                                     </StackPanel>
-                                    <Button Content="Hitung Total" Background="#C2185B" Foreground="White" Width="100" HorizontalAlignment="Right" Margin="0,0,5,0" Click="Count_Click"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Left">
+                                    <Button Content="Hitung Total" Background="#C2185B" Foreground="White" Width="100" HorizontalAlignment="Right" Margin="50,35,5,0" Click="Count_Click"/>
                                 </StackPanel>
                             </Grid>
                         </StackPanel>

@@ -88,7 +88,7 @@ namespace homepageJUnpro
                 Cursor = Cursors.Hand // Menambahkan tampilan kursor tangan
             };
 
-            border.MouseLeftButtonDown += (s, e) => OpenDetailPage(product);
+            border.MouseLeftButtonDown += (s, e) => OpenDetailPage(product, _userId);
 
             var stackPanel = new StackPanel
             {
@@ -169,9 +169,9 @@ namespace homepageJUnpro
         }
 
         // Membuka halaman detail barang
-        private void OpenDetailPage(Barang product)
+        private void OpenDetailPage(Barang product, int _userId)
         {
-            var detailPage = new DetailProduk(product);
+            var detailPage = new DetailProduk(product, _userId);
             detailPage.Show();
             this.Close();
         }

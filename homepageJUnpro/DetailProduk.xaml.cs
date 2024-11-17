@@ -49,7 +49,7 @@ namespace homepageJUnpro
         // Event handler untuk tombol kembali
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            var mainWindow = new MainWindow(1); // Ganti "1" dengan UserId yang sesuai
+            var mainWindow = new MainWindow(_userID); // Ganti "1" dengan UserId yang sesuai
             mainWindow.Show();
             this.Close();
         }

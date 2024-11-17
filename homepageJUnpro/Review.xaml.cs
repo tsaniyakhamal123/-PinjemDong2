@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32; // Required for OpenFileDialog
+using Npgsql;
 
 namespace homepageJUnpro
 {
@@ -11,12 +13,16 @@ namespace homepageJUnpro
     public partial class Review : Window
     {
         public int _userId;
+        public int _orderId;
+        private byte[]? imageBytes; // Nullable karena bisa tidak ada gambar yang dipilih
+        private string connString = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong";
 
         // Constructor accepting userID and orderID
         public Review(int userID, int orderID)
         {
             InitializeComponent();
             _userId = userID;
+            _orderId = orderID;
         }
 
         // Method to retrieve logged-in user ID
@@ -33,24 +39,71 @@ namespace homepageJUnpro
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"; // Image file filter
             if (openFileDialog.ShowDialog() == true)
             {
-                // Display selected image in the Image control
                 string filePath = openFileDialog.FileName;
+                imageBytes = File.ReadAllBytes(filePath);
+
+                // Menampilkan gambar di kontrol Image WPF
                 imageControl.Source = new BitmapImage(new Uri(filePath));
+
+                MessageBox.Show("Image selected successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
         // Event handler for ReviewButton click (submit review)
         private void ReviewButton_Click(object sender, RoutedEventArgs e)
         {
-            // Handle the logic for submitting a review
-            string description = NameTB.Text; // Text from the description field
-            string rating = stockTB.Text; // Text from the rating field
+            try
+            {
+                // Validasi input
+                if (string.IsNullOrWhiteSpace(descTB.Text) ||
+                    string.IsNullOrWhiteSpace(scoreTB.Text))
+                {
+                    MessageBox.Show("Please fill in all fields.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
-            // Here you can implement your review submission logic
-            MessageBox.Show($"Review submitted\nDescription: {description}\nRating: {rating}");
-            History hist = new History(GetLoggedInUserId());
-            hist.Show();
-            this.Hide();
+                // Validasi angka
+                if (!int.TryParse(scoreTB.Text, out int score) || score < 1 || score > 10)
+                {
+                    MessageBox.Show("Stock harus berupa angka di range 1-10.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                // Validasi gambar
+                if (imageBytes == null || imageBytes.Length == 0)
+                {
+                    MessageBox.Show("Silakan tambahkan gambar terlebih dahulu.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                // Simpan ke database
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    string insertQuery = "INSERT INTO review (order_number, reviewer, description, score, gambar) " +
+                                         "VALUES (@orderNum, @reviewer, @desc, @score, @gambar)";
+
+                    using (var cmd = new NpgsqlCommand(insertQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@orderNum", _orderId);
+                        cmd.Parameters.AddWithValue("@reviewer", _userId);
+                        cmd.Parameters.AddWithValue("@desc", descTB.Text.Trim());
+                        cmd.Parameters.AddWithValue("@score", score);
+                        cmd.Parameters.AddWithValue("@gambar", imageBytes);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Review added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                History hist = new History(GetLoggedInUserId());
+                hist.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding item: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
