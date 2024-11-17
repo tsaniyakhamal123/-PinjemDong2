@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:homepageJUnpro"
         mc:Ignorable="d"
-        Title="PinjemDong!" Height="500" Width="700" Background="#F9B8D9" WindowStartupLocation="CenterScreen">
+        Title="PinjemDong!" Height="500" Width="700" Background="#ECD4D4" WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- Background panel -->
         <Border Background="White" CornerRadius="15" Padding="20" Margin="73,38,58,0" VerticalAlignment="Top">
