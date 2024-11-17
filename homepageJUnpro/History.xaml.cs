@@ -14,7 +14,7 @@ namespace homepageJUnpro
     {
         public int _userId;
         public int _orderID;
-        public int _barangID;
+        public Barang _barang;
 
         public History(int loggedInUserId)
         {
@@ -85,7 +85,7 @@ namespace homepageJUnpro
         // Event handler untuk RerentButton
         private void RerentButton_Click(object sender, RoutedEventArgs e)
         {
-            Checkout CO = new Checkout(GetLoggedInUserId(), _barangID);
+            Checkout CO = new Checkout(_barang, GetLoggedInUserId());
             CO.Show();
             this.Hide();
         }
