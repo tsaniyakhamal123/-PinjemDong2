@@ -5,8 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:homepageJUnpro"
         mc:Ignorable="d"
-        Title="History" Height="450" Width="800">
-    <Grid>
-        
+        Title="History" Height="550" Width="800">
+    <Grid Background="#FDEDEC">
+        <!-- Header -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Margin="10">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
+                <Button Content="&#x25C0;" Width="30" Height="30" Background="Transparent" BorderThickness="0" FontSize="16" FontWeight="Bold"/>
+                <TextBlock Text="PinjemDong!" FontSize="20" FontWeight="Bold" Foreground="#C2185B" Margin="10,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
+                <!-- Left Panel -->
+                <StackPanel  Width="125" Background="#E6B7B9" VerticalAlignment="Stretch" HorizontalAlignment="Left">
+                    <!-- Buttons inside the left panel -->
+                    <Button x:Name="HomeButton" Content="Home Page" Width="100" Height="40" Margin="10,30,10,10"
+     Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold" Click="HomeButton_Click"/>
+                    <Button x:Name="HistoryButton" Content="History" Width="100" Height="40" Margin="10,30,10,10"
+Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold" Click="HistoryButton_Click"/>
+                    <Button x:Name="DashboardButton" Content="Manage Barang" Width="100" Height="40" Margin="10,30,10,10"
+Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold" Click="DashboardButton_Click"/>
+                    <Button x:Name="LogOutButton" Content="Log Out" Width="100" Height="40" Margin="10,150,10,10"
+     Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold" Click="LogOutButton_Click"/>
+                </StackPanel>
+
+                <!-- Main Content -->
+                <StackPanel Grid.Row="1" Margin="20, 0, 20, 20">
+                    <!-- Search Bar -->
+                    <DockPanel Margin="10">
+                        <Grid Width="550" Height="30" DockPanel.Dock="Left">
+                            <!-- Search TextBox -->
+                            <TextBox VerticalAlignment="Top" TextChanged="SearchBox_TextChanged" Height="30" Margin="0,0,0,0" x:Name="SearchBox" />
+                            <!-- Placeholder Text -->
+                            <TextBlock Text="Cari transaksimu di sini..." Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" x:Name="PlaceholderText" Visibility="Visible" />
+                        </Grid>
+                        
+                        <Button DockPanel.Dock="Right" Width="50" Height="30" Background="#F6CAC9">
+                            <TextBlock Text="🔍" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Button>
+                    </DockPanel>
+
+                    <!-- Transaction List -->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10,10,10,10">
+                        <StackPanel>
+                            <!-- Transaction Item -->
+                            <Border BorderThickness="1" BorderBrush="#E6B8B7" Margin="5" Padding="10" CornerRadius="10" Background="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="200" />
+                                    </Grid.ColumnDefinitions>
+                                    <!-- Image -->
+                                    <Image Grid.Column="0" Width="60" Height="60" Source="\Resource\default-image.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                                    <!-- Item Info -->
+                                    <StackPanel Grid.Column="1" Margin="10,0">
+                                        <TextBlock Text="Nama Barang yang Disewa" FontSize="14" FontWeight="SemiBold" />
+                                        <TextBlock Text="Jumlah Barang" FontSize="12" Foreground="#777" />
+                                        <TextBlock Text="Harga" FontSize="12" Foreground="#777" />
+                                    </StackPanel>
+
+                                    <!-- Actions -->
+                                    <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Total Pesanan:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" />
+                                            <TextBlock Text="RP XXXX" FontSize="14" HorizontalAlignment="Right" Margin="15,0,0,0"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                            <Button x:Name="ReviewButton" Content="Beri Ulasan" Background="#F6CAC9" Width="75" Margin="5,0" Click="ReviewButton_Click" />
+                                            <Button x:Name="RerentButton" Content="Sewa Lagi" Background="#F6CAC9" Width="75" Margin="5,0" Click="RerentButton_Click" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <!-- Add more items dynamically -->
+                            <!-- Repeat as needed -->
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

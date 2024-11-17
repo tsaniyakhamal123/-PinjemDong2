@@ -65,3 +65,7 @@ D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\
 D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\ref\homepageJUnpro.dll
 D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\Checkout.g.cs
 D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\History.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\Review.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\Checkout.baml
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\History.baml
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\Review.baml
