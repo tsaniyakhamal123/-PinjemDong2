@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace homepageJUnpro
 {
@@ -11,5 +15,6 @@ namespace homepageJUnpro
         public int Stock { get; set; }
         public string Description { get; set; } // Menyesuaikan dengan penamaan sebelumnya
         public string Category { get; set; }  // Menyesuaikan dengan penamaan sebelumnya
+
     }
 }

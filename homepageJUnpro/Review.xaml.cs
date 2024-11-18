@@ -18,11 +18,11 @@ namespace homepageJUnpro
         private string connString = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong";
 
         // Constructor accepting userID and orderID
-        public Review(int userID, int orderID)
+        public Review(int userID, Riwayat hist)
         {
             InitializeComponent();
             _userId = userID;
-            _orderId = orderID;
+            _orderId = hist.Id;
         }
 
         // Method to retrieve logged-in user ID
