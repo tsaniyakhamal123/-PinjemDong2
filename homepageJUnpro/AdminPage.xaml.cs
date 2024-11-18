@@ -18,8 +18,7 @@ namespace homepageJUnpro
         public AdminPage()
         {
             InitializeComponent();
-            Barangg = new ObservableCollection
-    <Barang>(); // ObservableCollection untuk barang
+            Barangg = new ObservableCollection<Barang>(); // ObservableCollection untuk barang
             DataContext = this; // Bind ke data context
             LoadProducts(); // Muat barang dari database
         }
@@ -62,8 +61,7 @@ namespace homepageJUnpro
         }
 
         // Method untuk menampilkan data barang di UI
-        private void DisplayProducts(ObservableCollection
-        <Barang> products)
+        private void DisplayProducts(ObservableCollection<Barang> products)
         {
             ItemsPanel.Children.Clear();
 
@@ -167,67 +165,25 @@ namespace homepageJUnpro
             };
             stackPanel.Children.Add(stockTextBlock);
 
-            // Edit Button (Image-based)
-            var editButton = new Button
-            {
-                Width = 40,
-                Height = 40,
-                Margin = new Thickness(10),
-                Background = Brushes.Transparent,
-                BorderBrush = Brushes.Transparent,
-                Cursor = Cursors.Hand
-            };
-
-            // Create Image for Edit
-            var editImage = new Image
-            {
-                Source = new BitmapImage(new Uri(@"C:\Users\USER\Downloads\Junpro today\homepageJUnpro\Resource\Edit.png")), // Path to your Edit icon
-                Stretch = Stretch.Uniform,
-                Width = 20,
-                Height = 20
-            };
-
-            editButton.Content = editImage;
-            editButton.Click += (s, e) => EditProduct(product);
-
-            // Delete Button (Image-based)
+            // Tombol Delete di ujung kanan
             var deleteButton = new Button
             {
-                Width = 40,
-                Height = 40,
-                Margin = new Thickness(10),
-                Background = Brushes.Transparent,
+                Width = 80, // Smaller width
+                Height = 30, // Smaller height
+                Content = "Delete", // Text for the Delete button
+                Background = Brushes.LightCoral,
                 BorderBrush = Brushes.Transparent,
-                Cursor = Cursors.Hand
+                Cursor = Cursors.Hand,
+                HorizontalAlignment = HorizontalAlignment.Right
             };
-
-            // Create Image for Delete
-            var deleteImage = new Image
-            {
-                Source = new BitmapImage(new Uri(@"C:\Users\USER\Downloads\Junpro today\homepageJUnpro\Resource\Trash 2.png")), // Path to your Delete icon
-                Stretch = Stretch.Uniform,
-                Width = 20,
-                Height = 20
-            };
-
-            deleteButton.Content = deleteImage;
             deleteButton.Click += (s, e) => DeleteProduct(product);
 
-            // Add the image buttons to the stack panel
-            stackPanel.Children.Add(editButton);
+            // Mengatur posisi tombol delete di ujung kanan
             stackPanel.Children.Add(deleteButton);
 
             // Attach the stack panel to the border
             border.Child = stackPanel;
             return border;
-        }
-
-        // Membuka halaman detail barang
-        private void EditProduct(Barang product)
-        {
-            var EditProductPage = new EditProductPage();
-            EditProductPage.Show();
-            this.Close();
         }
 
         // Fungsi Delete Product

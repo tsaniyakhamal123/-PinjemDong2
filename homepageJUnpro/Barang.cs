@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace homepageJUnpro
 {
@@ -12,7 +8,8 @@ namespace homepageJUnpro
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string ImagePath { get; set; }
-        public int Stock { get; set; } // Tambahkan properti Stock
-
+        public int Stock { get; set; }
+        public string Description { get; set; } // Menyesuaikan dengan penamaan sebelumnya
+        public string Category { get; set; }  // Menyesuaikan dengan penamaan sebelumnya
     }
 }

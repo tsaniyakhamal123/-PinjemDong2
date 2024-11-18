@@ -2,9 +2,18 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Admin Page" Height="450" Width="800" Background="#ECD4D4">
-    <Grid>
-        <WrapPanel x:Name="ItemsPanel" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <!-- Products will be displayed here -->
+
+    <!-- Gunakan DockPanel untuk mengatur layout -->
+    <DockPanel LastChildFill="True">
+        <!-- Tombol Logout di DockPanel di sisi kiri bawah -->
+        <Button Name="LogoutButton" Content="Logout" Width="77" Height="23" 
+                Background="LightCoral" Foreground="White" 
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                DockPanel.Dock="Bottom" Margin="10" Click="Button_Click"/>
+
+        <!-- Panel untuk menampilkan data barang -->
+        <WrapPanel x:Name="ItemsPanel" HorizontalAlignment="Center" VerticalAlignment="Top" DockPanel.Dock="Top">
+            <!-- Produk akan ditampilkan di sini -->
         </WrapPanel>
-    </Grid>
+    </DockPanel>
 </Window>
