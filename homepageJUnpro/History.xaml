@@ -42,7 +42,7 @@ Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold"
                             <!-- Placeholder Text -->
                             <TextBlock Text="Cari transaksimu di sini..." Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" x:Name="PlaceholderText" Visibility="Visible" />
                         </Grid>
-                        
+
                         <Button DockPanel.Dock="Right" Width="50" Height="30" Background="#F6CAC9">
                             <TextBlock Text="🔍" VerticalAlignment="Center" HorizontalAlignment="Center" />
                         </Button>
@@ -50,41 +50,8 @@ Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold"
 
                     <!-- Transaction List -->
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10,10,10,10">
-                        <StackPanel>
-                            <!-- Transaction Item -->
-                            <Border BorderThickness="1" BorderBrush="#E6B8B7" Margin="5" Padding="10" CornerRadius="10" Background="White">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="200" />
-                                    </Grid.ColumnDefinitions>
-                                    <!-- Image -->
-                                    <Image Grid.Column="0" Width="60" Height="60" Source="\Resource\default-image.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-                                    <!-- Item Info -->
-                                    <StackPanel Grid.Column="1" Margin="10,0">
-                                        <TextBlock x:Name="productName" Text="Nama Barang yang Disewa" FontSize="14" FontWeight="SemiBold" />
-                                        <TextBlock x:Name="quantity" Text="Jumlah Barang" FontSize="12" Foreground="#777" />
-                                        <TextBlock x:Name="rentDate" Text="Tanggal" FontSize="12" Foreground="#777" />
-                                    </StackPanel>
-
-                                    <!-- Actions -->
-                                    <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock x:Name="txt_totalPrice" Text="Total Pesanan:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" />
-                                            <TextBlock x:Name="rentPrice" Text="RP XXXX" FontSize="14" HorizontalAlignment="Right" Margin="15,0,0,0"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                                            <Button x:Name="ReviewButton" Content="Beri Ulasan" Background="#F6CAC9" Width="75" Margin="5,0" Click="ReviewButton_Click" />
-                                            <Button x:Name="RerentButton" Content="Sewa Lagi" Background="#F6CAC9" Width="75" Margin="5,0" Click="RerentButton_Click" />
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Grid>
-                            </Border>
-
-                            <!-- Add more items dynamically -->
-                            <!-- Repeat as needed -->
+                        <StackPanel x:Name="ItemsPanel">
+                            
                         </StackPanel>
                     </ScrollViewer>
                 </StackPanel>
