@@ -10,7 +10,7 @@
         </Button>
 
         <!-- Border utama untuk form -->
-        <Border Background="White" Width="404" Height="674" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10">
+        <Border Background="White" Width="440" Height="674" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10">
             <!-- ScrollViewer untuk memastikan semua konten dapat digulir -->
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="20">

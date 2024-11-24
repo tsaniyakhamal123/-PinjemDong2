@@ -187,6 +187,10 @@ namespace homepageJUnpro
             loginPage.Show();
             this.Close();
         }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         private void ProdukSayaButton_Click(object sender, RoutedEventArgs e)
         {
@@ -212,5 +216,13 @@ namespace homepageJUnpro
                 DisplayProducts(filteredProducts);
             }
         }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Account editAkun = new Account(_userId);
+            editAkun.Show();
+            this.Close();
+        }
+       
     }
 }
