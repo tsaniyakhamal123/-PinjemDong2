@@ -1,8 +1,9 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Npgsql;
@@ -23,7 +24,7 @@ namespace homepageJUnpro
             InitializeComponent();
             Barangg = new ObservableCollection<Barang>();
             DataContext = this; // Bind to data context
-            LoadProducts(); // Load data from database
+            LoadProducts(); // Load data from the database
         }
 
         // Load products from the database
@@ -163,6 +164,14 @@ namespace homepageJUnpro
             };
             stackPanel.Children.Add(stockTextBlock);
 
+            // Button Stack for Delete
+            var buttonStackPanel = new StackPanel
+            {
+                Orientation = Orientation.Horizontal,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
             // Delete button with image
             var deleteButton = new Button
             {
@@ -190,7 +199,8 @@ namespace homepageJUnpro
             return border;
         }
 
-        // Delete product from the database
+
+        // Function to Delete Product
         private void DeleteProduct(Barang product)
         {
             var result = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButton.YesNo);
@@ -209,8 +219,12 @@ namespace homepageJUnpro
                         }
                     }
 
+                    // After deleting, remove the product from the ObservableCollection
                     Barangg.Remove(product);
-                    DisplayProducts(Barangg);
+
+                    // Refresh the display to reflect the changes
+                    LoadProducts();
+
                     MessageBox.Show("Product deleted successfully.");
                 }
                 catch (Exception ex)
@@ -220,6 +234,7 @@ namespace homepageJUnpro
             }
         }
 
+
         // Search functionality
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -227,18 +242,28 @@ namespace homepageJUnpro
 
             if (string.IsNullOrEmpty(query))
             {
-                DisplayProducts(Barangg);
+                LoadProducts();
             }
             else
             {
-                var filteredProducts = new ObservableCollection<Barang>(Barangg.Where(b => b.Name.Contains(query, StringComparison.OrdinalIgnoreCase)));
-                DisplayProducts(filteredProducts);
+                var filteredBarang = new ObservableCollection<Barang>(Barangg.Where(b => b.Name.Contains(query, StringComparison.OrdinalIgnoreCase)));
+                DisplayProducts(filteredBarang);
             }
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        // Back button to navigate to the previous window
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            SearchBox_TextChanged(sender, null);
+            var mainWindow = new MainWindow(_adminId);
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            login loginPage = new login();
+            loginPage.Show();
+            this.Close();
         }
     }
 }

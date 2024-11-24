@@ -14,6 +14,7 @@ namespace homepageJUnpro
     {
         private int _pemilikId;  // ID pemilik
         public ObservableCollection<Barang> Barangg { get; set; }
+        private string connstring = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong"; // Connection string
 
         public BarangPemilik(int pemilikId)
         {
@@ -51,7 +52,7 @@ namespace homepageJUnpro
         {
             var barangList = new List<Barang>();
 
-            using (var connection = new NpgsqlConnection("Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong"))
+            using (var connection = new NpgsqlConnection(connstring))
             {
                 connection.Open();
                 var query = "SELECT barang_id, owner_id, nama_barang, stock, ulasan, kategori, harga, deskripsi, alamat, gambar FROM barang WHERE owner_id = @pemilikId";
@@ -224,14 +225,15 @@ namespace homepageJUnpro
                     using (var connection = new NpgsqlConnection("Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong"))
                     {
                         connection.Open();
-                        var query = "DELETE FROM barang WHERE barang_id = @barangId";
-                        var cmd = new NpgsqlCommand(query, connection);
-                        cmd.Parameters.AddWithValue("@barangId", barang.Id);
-                        cmd.ExecuteNonQuery();
+                        string query = "DELETE FROM barang WHERE barang_id = @barangId";
+                        using (var cmd = new NpgsqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@barangId", barang.Id);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
-
                     MessageBox.Show("Product deleted successfully.");
-                    LoadPemilikBarang(); // Refresh the product list
+                    LoadPemilikBarang();  // Refresh the list after deletion
                 }
                 catch (Exception ex)
                 {
@@ -239,6 +241,7 @@ namespace homepageJUnpro
                 }
             }
         }
+
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -252,15 +255,12 @@ namespace homepageJUnpro
             else
             {
                 // Filter products based on the search query
-                var filteredProducts = new ObservableCollection<Barang>(
-                    Barangg.Where(product => product.Name.ToLower().Contains(searchQuery)) // Ensure both sides are lower case.
-                );
+                var filteredProducts = new ObservableCollection<Barang>(Barangg.Where(product => product.Name.ToLower().Contains(searchQuery))); // Ensure both sides are lower case.
 
                 // Display filtered products
                 DisplayProducts(filteredProducts);
             }
         }
-
 
         private void DisplayProducts(ObservableCollection<Barang> products)
         {
@@ -271,7 +271,6 @@ namespace homepageJUnpro
                 ItemsPanel.Children.Add(CreateProductDisplay(product)); // Create and add each product display
             }
         }
-
 
         // Back button to navigate to MainWindow
         private void BackButton_Click(object sender, RoutedEventArgs e)
