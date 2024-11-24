@@ -21,12 +21,12 @@ namespace homepageJUnpro
         private void LoadProductDetails(Barang product)
         {
             // Set detail produk ke UI
-            ProductName.Text = product.Name; // Nama produk
+            ProductName.Text = !string.IsNullOrEmpty(product.Name) ? product.Name : "Nama produk tidak tersedia";
             ProductPrice.Text = $"Rp {product.Price:N0}"; // Harga produk
             ProductStock.Text = $"Stok: {product.Stock}"; // Stok produk
-            ProductCategory.Text = $"Kategori: {product.Category ?? "Kategori tidak tersedia"}"; // Kategori produk
-            ProductDescription.Text = product.Description ?? "Deskripsi tidak tersedia."; // Deskripsi produk
-            ProductAddress.Text = $"Alamat: {product.Address ?? "Alamat tidak tersedia."}"; // Alamat produk
+            ProductCategory.Text = !string.IsNullOrEmpty(product.Category) ? $"Kategori: {product.Category}" : "Kategori tidak tersedia"; // Kategori produk
+            ProductDescription.Text = !string.IsNullOrEmpty(product.Description) ? product.Description : "Deskripsi tidak tersedia."; // Deskripsi produk
+            ProductAddress.Text = !string.IsNullOrEmpty(product.Address) ? $"Alamat: {product.Address}" : "Alamat tidak tersedia."; // Alamat produk
 
             // Set gambar produk
             if (!string.IsNullOrEmpty(product.ImagePath))
@@ -46,7 +46,12 @@ namespace homepageJUnpro
                     MessageBox.Show($"Error loading image: {ex.Message}");
                 }
             }
+            else
+            {
+                ProductImage.Source = null; // Hide image if not available
+            }
         }
+
 
         // Event handler untuk tombol Kembali
         private void BackButton_Click(object sender, RoutedEventArgs e)

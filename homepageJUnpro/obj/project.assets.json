@@ -242,11 +242,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Downloads\\final wpf 1\\homepageJUnpro\\homepageJUnpro.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Downloads\\final wpf 2\\homepageJUnpro\\homepageJUnpro.csproj",
       "projectName": "homepageJUnpro",
-      "projectPath": "C:\\Users\\USER\\Downloads\\final wpf 1\\homepageJUnpro\\homepageJUnpro.csproj",
+      "projectPath": "C:\\Users\\USER\\Downloads\\final wpf 2\\homepageJUnpro\\homepageJUnpro.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Downloads\\final wpf 1\\homepageJUnpro\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Downloads\\final wpf 2\\homepageJUnpro\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
