@@ -164,14 +164,12 @@ namespace homepageJUnpro
             border.Child = stackPanel;
             return border;
         }
-
-        private void OpenDetailPage(Barang product, int _userId)
+        private void OpenDetailPage(Barang product, int userId)
         {
-            var detailPage = new DetailProduk(product, _userId); // Passing product and user ID
+            var detailPage = new DetailProduk(product.Id, userId); // Kirim ID barang dan user ID
             detailPage.Show();
             this.Close();
         }
-
 
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

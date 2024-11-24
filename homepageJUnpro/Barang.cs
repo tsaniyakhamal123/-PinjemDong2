@@ -10,4 +10,6 @@
     public string Description { get; set; } // deskripsi
     public string Address { get; set; } // alamat
     public string ImagePath { get; set; } // gambar (Base64 string)
+    public byte[] ImageBytes { get; set; } // gambar
+
 }
