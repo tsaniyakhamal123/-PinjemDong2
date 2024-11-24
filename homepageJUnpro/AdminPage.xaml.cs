@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Npgsql;
@@ -13,18 +12,21 @@ namespace homepageJUnpro
     public partial class AdminPage : Window
     {
         private string connstring = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong";
+        private int _adminId;  // Store the passed adminId
+
         public ObservableCollection<Barang> Barangg { get; set; }
 
-        public AdminPage()
+        // Constructor accepting the adminId
+        public AdminPage(int adminId)
         {
+            _adminId = adminId;  // Set the adminId
             InitializeComponent();
-            Barangg = new ObservableCollection
-    <Barang>(); // ObservableCollection untuk barang
-            DataContext = this; // Bind ke data context
-            LoadProducts(); // Muat barang dari database
+            Barangg = new ObservableCollection<Barang>();
+            DataContext = this; // Bind to data context
+            LoadProducts(); // Load data from database
         }
 
-        // Method untuk memuat data barang dari database
+        // Load products from the database
         private void LoadProducts()
         {
             try
@@ -45,7 +47,7 @@ namespace homepageJUnpro
                                 Name = reader.GetString(1),
                                 Price = reader.GetDecimal(2),
                                 ImagePath = reader.IsDBNull(3) ? null : Convert.ToBase64String((byte[])reader[3]),
-                                Stock = reader.GetInt32(4) // Stok produk
+                                Stock = reader.GetInt32(4)
                             };
 
                             Barangg.Add(product);
@@ -61,9 +63,8 @@ namespace homepageJUnpro
             }
         }
 
-        // Method untuk menampilkan data barang di UI
-        private void DisplayProducts(ObservableCollection
-        <Barang> products)
+        // Display products in the UI
+        private void DisplayProducts(ObservableCollection<Barang> products)
         {
             ItemsPanel.Children.Clear();
 
@@ -73,29 +74,27 @@ namespace homepageJUnpro
             }
         }
 
-        // Membuat tampilan untuk setiap barang
+        // Create a display for a product
         private Border CreateProductDisplay(Barang product)
         {
             var border = new Border
             {
-                Width = 600, // Adjusted width
-                Height = 150, // Adjusted height
+                Width = 600,
+                Height = 150,
                 Margin = new Thickness(10),
                 CornerRadius = new CornerRadius(15),
                 Background = Brushes.White,
                 BorderBrush = new SolidColorBrush(Color.FromRgb(230, 183, 185)),
-                BorderThickness = new Thickness(1),
-                Cursor = Cursors.Hand
+                BorderThickness = new Thickness(1)
             };
 
             var stackPanel = new StackPanel
             {
-                Orientation = Orientation.Horizontal, // Horizontal layout
+                Orientation = Orientation.Horizontal,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center
             };
 
-            // Gambar produk
             var imageBorder = new Border
             {
                 Width = 100,
@@ -133,7 +132,6 @@ namespace homepageJUnpro
             imageBorder.Child = image;
             stackPanel.Children.Add(imageBorder);
 
-            // Item name
             var nameTextBlock = new TextBlock
             {
                 Text = product.Name,
@@ -145,7 +143,6 @@ namespace homepageJUnpro
             };
             stackPanel.Children.Add(nameTextBlock);
 
-            // Item price
             var priceTextBlock = new TextBlock
             {
                 Text = $"Rp {product.Price:N0}",
@@ -156,7 +153,6 @@ namespace homepageJUnpro
             };
             stackPanel.Children.Add(priceTextBlock);
 
-            // Item stock
             var stockTextBlock = new TextBlock
             {
                 Text = $"Stok: {product.Stock}",
@@ -167,70 +163,34 @@ namespace homepageJUnpro
             };
             stackPanel.Children.Add(stockTextBlock);
 
-            // Edit Button (Image-based)
-            var editButton = new Button
-            {
-                Width = 40,
-                Height = 40,
-                Margin = new Thickness(10),
-                Background = Brushes.Transparent,
-                BorderBrush = Brushes.Transparent,
-                Cursor = Cursors.Hand
-            };
-
-            // Create Image for Edit
-            var editImage = new Image
-            {
-                Source = new BitmapImage(new Uri(@"C:\Users\USER\Downloads\Junpro today\homepageJUnpro\Resource\Edit.png")), // Path to your Edit icon
-                Stretch = Stretch.Uniform,
-                Width = 20,
-                Height = 20
-            };
-
-            editButton.Content = editImage;
-            editButton.Click += (s, e) => EditProduct(product);
-
-            // Delete Button (Image-based)
+            // Delete button with image
             var deleteButton = new Button
             {
                 Width = 40,
                 Height = 40,
-                Margin = new Thickness(10),
                 Background = Brushes.Transparent,
                 BorderBrush = Brushes.Transparent,
-                Cursor = Cursors.Hand
+                Margin = new Thickness(10, 0, 0, 0)
             };
 
-            // Create Image for Delete
-            var deleteImage = new Image
+            var deleteIcon = new Image
             {
-                Source = new BitmapImage(new Uri(@"C:\Users\USER\Downloads\Junpro today\homepageJUnpro\Resource\Trash 2.png")), // Path to your Delete icon
-                Stretch = Stretch.Uniform,
+                Source = new BitmapImage(new Uri("/Resource/Trash 2.png", UriKind.Relative)),
                 Width = 20,
-                Height = 20
+                Height = 20,
+                Stretch = Stretch.Uniform
             };
 
-            deleteButton.Content = deleteImage;
+            deleteButton.Content = deleteIcon;
             deleteButton.Click += (s, e) => DeleteProduct(product);
 
-            // Add the image buttons to the stack panel
-            stackPanel.Children.Add(editButton);
             stackPanel.Children.Add(deleteButton);
 
-            // Attach the stack panel to the border
             border.Child = stackPanel;
             return border;
         }
 
-        // Membuka halaman detail barang
-        private void EditProduct(Barang product)
-        {
-            var EditProductPage = new EditProductPage();
-            EditProductPage.Show();
-            this.Close();
-        }
-
-        // Fungsi Delete Product
+        // Delete product from the database
         private void DeleteProduct(Barang product)
         {
             var result = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButton.YesNo);
@@ -249,8 +209,8 @@ namespace homepageJUnpro
                         }
                     }
 
-                    // Hapus produk dari ObservableCollection dan tampilkan ulang produk
                     Barangg.Remove(product);
+                    DisplayProducts(Barangg);
                     MessageBox.Show("Product deleted successfully.");
                 }
                 catch (Exception ex)
@@ -260,12 +220,25 @@ namespace homepageJUnpro
             }
         }
 
-        // Event untuk tombol Log Out
-        private void Button_Click(object sender, RoutedEventArgs e)
+        // Search functionality
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var loginPage = new login();
-            loginPage.Show();
-            this.Close();
+            string query = SearchBox.Text?.Trim();
+
+            if (string.IsNullOrEmpty(query))
+            {
+                DisplayProducts(Barangg);
+            }
+            else
+            {
+                var filteredProducts = new ObservableCollection<Barang>(Barangg.Where(b => b.Name.Contains(query, StringComparison.OrdinalIgnoreCase)));
+                DisplayProducts(filteredProducts);
+            }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchBox_TextChanged(sender, null);
         }
     }
 }

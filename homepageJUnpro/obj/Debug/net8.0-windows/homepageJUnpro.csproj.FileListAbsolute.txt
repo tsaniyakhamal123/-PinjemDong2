@@ -165,3 +165,50 @@ D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\
 D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\DetailProduk.g.cs
 D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\EditProductPage.g.cs
 D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\EditProductPage.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.csproj.AssemblyReference.cache
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\AdminPage.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\DetailProduk.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\login.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\TambahBarang.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\AdminPage.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\Checkout.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\DetailProduk.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\EditProductPage.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\History.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\login.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\Review.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\sign in.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\TambahBarang.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro_MarkupCompile.cache
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro_MarkupCompile.lref
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.dll
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\refint\homepageJUnpro.dll
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.pdb
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.exe
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.deps.json
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.runtimeconfig.json
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.dll
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\bin\Debug\net8.0-windows\homepageJUnpro.pdb
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\bin\Debug\net8.0-windows\Npgsql.dll
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\Checkout.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\EditProductPage.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\History.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\Review.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\sign in.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.g.resources
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.AssemblyInfoInputs.cache
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.AssemblyInfo.cs
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.csproj.CoreCompileInputs.cache
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.sourcelink.json
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepage.A5D65652.Up2Date
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.genruntimeconfig.cache
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\ref\homepageJUnpro.dll
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\AdminLogin.baml
+C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\AdminLogin.g.cs

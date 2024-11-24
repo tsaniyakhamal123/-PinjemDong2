@@ -9,8 +9,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resource\Arrow left-circle.png" />
+    <None Remove="Resource\Edit.png" />
+    <None Remove="Resource\Log out.png" />
+    <None Remove="Resource\Search.png" />
+    <None Remove="Resource\Trash 2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Npgsql" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Arrow left-circle.png" />
+    <Resource Include="Resource\Edit.png" />
+    <Resource Include="Resource\Log out.png" />
+    <Resource Include="Resource\Trash 2.png" />
   </ItemGroup>
 
 </Project>
