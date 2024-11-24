@@ -6,6 +6,6 @@ PinjemDong! adalah aplikasi penyewaan barang untuk memudahkan pengguna meminjam 
 ## Team Member
 Ketua Kelompok : 
 1. Nasywa Rahmadhani Putri Setiawan (22/498375/TK/54665)
-2. Aisa Selvira Q.A (22/498561/TK/54690)
+2. Aisa Selvira Quraata A'yunni (22/498561/TK/54690)
 3. Tsaniya Khamal Khasanah (22/503817/TK/55074)
 
