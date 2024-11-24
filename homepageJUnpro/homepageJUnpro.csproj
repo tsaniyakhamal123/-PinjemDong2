@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Resource\Arrow left-circle.png" />
+    <None Remove="Resource\default-image.png" />
     <None Remove="Resource\Edit.png" />
     <None Remove="Resource\Log out.png" />
     <None Remove="Resource\Search.png" />
@@ -17,6 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resource\default-image.png" />
+    <Resource Include="Resource\Edit.png" />
     <Resource Include="Resource\Search.png" />
   </ItemGroup>
 
@@ -27,7 +30,6 @@
 
   <ItemGroup>
     <Resource Include="Resource\Arrow left-circle.png" />
-    <Resource Include="Resource\Edit.png" />
     <Resource Include="Resource\Log out.png" />
     <Resource Include="Resource\Trash 2.png" />
   </ItemGroup>

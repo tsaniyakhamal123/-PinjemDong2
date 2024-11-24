@@ -25,7 +25,6 @@ namespace homepageJUnpro
             LoadProducts(); // Muat barang dari database
         }
 
-        // Method untuk memuat data barang dari database
         private void LoadProducts()
         {
             try
@@ -62,7 +61,6 @@ namespace homepageJUnpro
             }
         }
 
-        // Method untuk menampilkan data barang di UI
         private void DisplayProducts(ObservableCollection<Barang> products)
         {
             ItemsPanel.Children.Clear();
@@ -73,7 +71,6 @@ namespace homepageJUnpro
             }
         }
 
-        // Membuat tampilan untuk setiap barang
         private Border CreateProductDisplay(Barang product)
         {
             var border = new Border
@@ -85,7 +82,7 @@ namespace homepageJUnpro
                 Background = Brushes.White,
                 BorderBrush = new SolidColorBrush(Color.FromRgb(230, 183, 185)),
                 BorderThickness = new Thickness(1),
-                Cursor = Cursors.Hand // Menambahkan tampilan kursor tangan
+                Cursor = Cursors.Hand
             };
 
             border.MouseLeftButtonDown += (s, e) => OpenDetailPage(product, _userId);
@@ -156,7 +153,7 @@ namespace homepageJUnpro
 
             var stockTextBlock = new TextBlock
             {
-                Text = $"Stok: {product.Stock}", // Menampilkan stok produk
+                Text = $"Stok: {product.Stock}",
                 FontSize = 12,
                 Foreground = Brushes.Gray,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -168,15 +165,15 @@ namespace homepageJUnpro
             return border;
         }
 
-        // Membuka halaman detail barang
         private void OpenDetailPage(Barang product, int _userId)
         {
-            var detailPage = new DetailProduk(product, _userId);
+            var detailPage = new DetailProduk(product, _userId); // Passing product and user ID
             detailPage.Show();
             this.Close();
         }
 
-        // Event untuk tombol "Tambah Barang"
+
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             TambahBarang addBarangPage = new TambahBarang(_userId);
@@ -184,7 +181,6 @@ namespace homepageJUnpro
             this.Close();
         }
 
-        // Event untuk tombol "Log Out"
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             login loginPage = new login();
@@ -192,7 +188,14 @@ namespace homepageJUnpro
             this.Close();
         }
 
-        // Event untuk pencarian
+        private void ProdukSayaButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to BarangPemilik page
+            var barangPemilikPage = new BarangPemilik(_userId);
+            barangPemilikPage.Show();
+            this.Close();
+        }
+
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string searchQuery = SearchBox.Text.Trim().ToLower();
