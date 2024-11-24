@@ -113,5 +113,21 @@ namespace homepageJUnpro
             loginPage.Show();
             this.Close();
         }
+
+        private void AdminLoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Membuka halaman AdminLogin saat button ditekan
+            AdminLogin adminLoginPage = new AdminLogin();
+            adminLoginPage.Show();
+            this.Close(); // Menutup halaman sign_in
+        }
+
+        // Event handler untuk klik "Login as Admin" TextBlock
+        private void AdminLoginText_Click(object sender, RoutedEventArgs e)
+        {
+            AdminLogin adminLoginPage = new AdminLogin(); // Membuka halaman AdminLogin
+            adminLoginPage.Show();
+            this.Close(); // Menutup halaman sign-in
+        }
     }
 }

@@ -5,14 +5,22 @@ using BCrypt.Net;
 
 namespace homepageJUnpro
 {
-    public partial class login : Window
+    public partial class AdminLogin : Window
     {
         // Connection string to PostgreSQL database
         private string connstring = "Host=postgres-junpro.cpm48umoy5cj.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=postgres;Password=PinjemDong!;Database=pinjemdong";
 
-        public login()
+        public AdminLogin()
         {
             InitializeComponent();
+        }
+
+        // Event handler untuk tombol Login as User
+        private void UserLoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            login userLoginPage = new login(); // Membuka halaman login pengguna
+            userLoginPage.Show();
+            this.Close(); // Menutup halaman login
         }
 
         // Event handler for Log in button
@@ -21,13 +29,21 @@ namespace homepageJUnpro
             string inputUsername = usernameBox.Text;
             string inputPassword = PasswordBox.Password;
 
-            LoginUser(inputUsername, inputPassword);
+            LoginAdmin(inputUsername, inputPassword);
         }
 
-        // Method to authenticate user
-        private void LoginUser(string username, string password)
+        // Event handler untuk klik "Log in as User"
+        private void UserLoginText_Click(object sender, RoutedEventArgs e)
         {
-            string query = "SELECT password, user_id FROM public.pengguna WHERE username = @username";
+            login userLoginPage = new login(); // Membuka halaman login pengguna
+            userLoginPage.Show();
+            this.Close(); // Menutup halaman login admin
+        }
+
+        // Method to authenticate admin
+        private void LoginAdmin(string username, string password)
+        {
+            string query = "SELECT password, admin_id FROM public.admin WHERE username = @username";
 
             try
             {
@@ -44,15 +60,16 @@ namespace homepageJUnpro
                             if (reader.Read())
                             {
                                 string storedHashedPassword = reader["password"]?.ToString() ?? string.Empty;
-                                int loggedInUserId = (int)reader["user_id"];
+                                int loggedInAdminId = (int)reader["admin_id"];
 
+                                // Verifying password
                                 if (BCrypt.Net.BCrypt.Verify(password, storedHashedPassword))
                                 {
                                     MessageBox.Show("Log In successful");
 
-                                    // Open MainWindow and pass loggedInUserId (int) not Pengguna object
-                                    MainWindow home = new MainWindow(loggedInUserId); // Pass only the UserId (int)
-                                    home.Show();
+                                    // Open AdminPage and pass loggedInAdminId
+                                    AdminPage adminPage = new AdminPage(loggedInAdminId);  // Pass admin ID
+                                    adminPage.Show();
                                     this.Close();
                                 }
                                 else
@@ -72,30 +89,6 @@ namespace homepageJUnpro
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        // Event handler for Sign up button
-        private void SignUpButton_Click(object sender, RoutedEventArgs e)
-        {
-            sign_in signUpPage = new sign_in();
-            signUpPage.Show();
-            this.Close();
-        }
-
-        // Event handler untuk tombol Login as Admin
-        private void AdminLoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            AdminLogin adminLoginPage = new AdminLogin(); // Membuka halaman AdminLogin
-            adminLoginPage.Show();
-            this.Close(); // Menutup halaman login
-        }
-
-        // Event handler untuk klik "Login as Admin" TextBlock
-        private void AdminLoginText_Click(object sender, RoutedEventArgs e)
-        {
-            AdminLogin adminLoginPage = new AdminLogin(); // Membuka halaman AdminLogin
-            adminLoginPage.Show();
-            this.Close(); // Menutup halaman sign-in
         }
     }
 }

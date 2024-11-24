@@ -7,26 +7,28 @@ namespace homepageJUnpro
 {
     public partial class DetailProduk : Window
     {
-        private Barang _product; // Menyimpan data produk yang sedang ditampilkan
-        private int _userID;
+        private Barang _product; // Objek barang yang sedang ditampilkan
+        private int _userID; // ID pengguna yang sedang login
 
         public DetailProduk(Barang product, int userID)
         {
-            InitializeComponent();
-
-            _product = product; // Menyimpan data produk untuk digunakan di halaman checkout
-            _userID = userID;
-            LoadProductDetails(product); // Menampilkan detail produk ke UI
+            InitializeComponent(); // Inisialisasi UI
+            _product = product; // Menyimpan data produk
+            _userID = userID; // Menyimpan ID pengguna
+            LoadProductDetails(product); // Memuat detail produk ke UI
         }
 
-        // Menampilkan detail produk
         private void LoadProductDetails(Barang product)
         {
-            ProductName.Text = product.Name;
-            ProductPrice.Text = $"Rp {product.Price:N0}";
-            ProductStock.Text = $"Stok: {product.Stock}";
+            // Set detail produk ke UI
+            ProductName.Text = product.Name; // Nama produk
+            ProductPrice.Text = $"Rp {product.Price:N0}"; // Harga produk
+            ProductStock.Text = $"Stok: {product.Stock}"; // Stok produk
+            ProductCategory.Text = $"Kategori: {product.Category ?? "Kategori tidak tersedia"}"; // Kategori produk
+            ProductDescription.Text = product.Description ?? "Deskripsi tidak tersedia."; // Deskripsi produk
+            ProductAddress.Text = $"Alamat: {product.Address ?? "Alamat tidak tersedia."}"; // Alamat produk
 
-            // Load gambar produk
+            // Set gambar produk
             if (!string.IsNullOrEmpty(product.ImagePath))
             {
                 try
@@ -37,7 +39,7 @@ namespace homepageJUnpro
                     bitmap.StreamSource = new MemoryStream(imageData);
                     bitmap.CacheOption = BitmapCacheOption.OnLoad;
                     bitmap.EndInit();
-                    ProductImage.Source = bitmap;
+                    ProductImage.Source = bitmap; // Menampilkan gambar di UI
                 }
                 catch (Exception ex)
                 {
@@ -46,40 +48,27 @@ namespace homepageJUnpro
             }
         }
 
-        // Event handler untuk tombol kembali
+        // Event handler untuk tombol Kembali
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            var mainWindow = new MainWindow(_userID); // Ganti "1" dengan UserId yang sesuai
+            var mainWindow = new MainWindow(_userID); // Membuka halaman utama
             mainWindow.Show();
-            this.Close();
+            this.Close(); // Menutup halaman Detail Produk
         }
 
-        // Event handler untuk tombol checkout
+        // Event handler untuk tombol Checkout
         private void CheckoutButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Buka halaman checkout dengan mengirimkan data produk
-                var checkoutPage = new Checkout(_product, _userID);
+                var checkoutPage = new Checkout(_product, _userID); // Membuka halaman checkout
                 checkoutPage.Show();
-                this.Close();
+                this.Close(); // Menutup halaman Detail Produk
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error navigating to checkout: {ex.Message}");
             }
-        }
-    }
-
-    // Class Checkout sebagai pelengkap agar tidak ada error referensi
-    public partial class Checkout : Window
-    {
-        private Barang _product;
-
-        public Checkout(Barang product)
-        {
-            InitializeComponent();
-            _product = product;
         }
     }
 }
