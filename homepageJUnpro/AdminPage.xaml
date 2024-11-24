@@ -30,8 +30,15 @@
                 </TextBox>
             </StackPanel>
 
+            <!-- Log Out Button with Image and Text -->
+            <Button Width="41" Margin="10,350,10,10" Background="#ECD4D4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold" Click="Button_Click" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image Source="/Resource/Log out.png" Width="20" Height="20" VerticalAlignment="Center" Margin="0,5,5,0"/>
+                </StackPanel>
+            </Button>
+
             <!-- Scrollable Product Display -->
-            <ScrollViewer DockPanel.Dock="Bottom" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="10">
+            <ScrollViewer DockPanel.Dock="Bottom" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="10" Width="1147" RenderTransformOrigin="0.593,0.486">
                 <WrapPanel x:Name="ItemsPanel" HorizontalAlignment="Center" VerticalAlignment="Top" />
             </ScrollViewer>
         </DockPanel>

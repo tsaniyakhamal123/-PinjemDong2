@@ -75,7 +75,6 @@ namespace homepageJUnpro
                 }
 
                 MessageBox.Show("Product updated successfully.");
-                this.Close(); // Close the window after saving
             }
             catch (Exception ex)
             {
