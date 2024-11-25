@@ -9,12 +9,21 @@ homepageJUnpro
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+<<<<<<< HEAD
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\App.xaml
+112116586534
+
+211549080229
+202257633811
+AdminPage.xaml;Checkout.xaml;DetailProduk.xaml;EditProductPage.xaml;History.xaml;HistoryDetail.xaml;login.xaml;MainWindow.xaml;Review.xaml;sign in.xaml;TambahBarang.xaml;
+=======
 C:\Users\USER\Downloads\final wpf 3\homepageJUnpro\App.xaml
 13-710010232
 
 23-1344098872
 202193758762
 Account.xaml;AdminLogin.xaml;AdminPage.xaml;BarangPemilik.xaml;Checkout.xaml;DetailProduk.xaml;EditProductPage.xaml;History.xaml;login.xaml;MainWindow.xaml;Review.xaml;sign in.xaml;TambahBarang.xaml;
+>>>>>>> 6edc910863f38d19e3edc89917ebc221910cfc7f
 
 False
 

@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+<<<<<<< HEAD
+    <_LastSelectedProfileId>D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+=======
     <_LastSelectedProfileId>C:\Users\USER\Downloads\final wpf 3\homepageJUnpro\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+>>>>>>> 6edc910863f38d19e3edc89917ebc221910cfc7f
   </PropertyGroup>
   <ItemGroup>
     <ApplicationDefinition Update="App.xaml">
@@ -31,6 +35,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="History.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HistoryDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="login.xaml.cs">
@@ -69,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="History.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HistoryDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="login.xaml">

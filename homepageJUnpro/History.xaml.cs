@@ -38,6 +38,13 @@ namespace homepageJUnpro
             return _userId;
         }
 
+        private void OpenHistoryDetail(Riwayat hist, int _userId)
+        {
+            var detailPage = new HistoryDetail(hist, _userId);
+            detailPage.Show();
+            this.Close();
+        }
+
         private void LoadHistories()
         {
             try
@@ -88,15 +95,6 @@ namespace homepageJUnpro
 
         private Border CreateProductDisplay(Riwayat hist)
         {
-            var scrollViewer = new ScrollViewer
-            {
-                VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
-                HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled
-            };
-
-            var containerStackPanel = new StackPanel(); // Tempat semua item
-            scrollViewer.Content = containerStackPanel;
-
             var border = new Border
             {
                 Width = 500,
@@ -110,13 +108,9 @@ namespace homepageJUnpro
                 Cursor = Cursors.Hand
             };
 
-            border.MouseLeftButtonDown += (s, e) => ChooseHist(hist);
+            border.MouseLeftButtonDown += (s, e) => OpenHistoryDetail(_riwayat, _userId);
 
-            /*var mainStackPanel = new StackPanel
-            {
-                Orientation = Orientation.Horizontal,
-                VerticalAlignment = VerticalAlignment.Center
-            };*/
+            //var containerStackPanel = new StackPanel(); // Tempat semua item
 
             var dockPanel = new DockPanel
             {
@@ -216,48 +210,11 @@ namespace homepageJUnpro
             };
             rightStackPanel.Children.Add(priceTextBlock);
 
-            var reviewButton = new Button
-            {
-                Content = "Beri Ulasan",
-                Width = 100,
-                Height = 30,
-                Margin = new Thickness(0, 0, 0, 5),
-                Background = Brushes.LightPink,
-                Foreground = Brushes.Black,
-                BorderBrush = new SolidColorBrush(Color.FromRgb(230, 183, 185)),
-                BorderThickness = new Thickness(1)
-            };
-            reviewButton.Click += (s, e) => OpenReviewPage(_userId, hist);
-            rightStackPanel.Children.Add(reviewButton);
-
-            var rentAgainButton = new Button
-            {
-                Content = "Sewa Lagi",
-                Width = 100,
-                Height = 30,
-                Background = Brushes.LightPink,
-                Foreground = Brushes.Black,
-                BorderBrush = new SolidColorBrush(Color.FromRgb(230, 183, 185)),
-                BorderThickness = new Thickness(1)
-            };
-            rentAgainButton.Click += (s, e) => RentAgain(_userId, _riwayat);
-            rightStackPanel.Children.Add(rentAgainButton);
-
             DockPanel.SetDock(rightStackPanel, Dock.Right);
             dockPanel.Children.Add(rightStackPanel);
 
             border.Child = dockPanel;
-            containerStackPanel.Children.Add(border);
-
-            var mainBorder = new Border
-            {
-                Child = scrollViewer,
-                Width = 550,
-                BorderBrush = Brushes.LightGray,
-                BorderThickness = new Thickness(1)
-            };
-
-            return mainBorder;
+            return border;
         }
 
         /*private void OpenHistoryDetail(Riwayat hist, int userId)
@@ -364,22 +321,21 @@ namespace homepageJUnpro
             {
                 MessageBox.Show($"Mencari: {searchText}");
             }
+
+            string searchQuery = SearchBox.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(searchQuery))
+            {
+                DisplayHistories(OrderHistory);
+            }
+            else
+            {
+                var filteredProducts = new ObservableCollection<Riwayat>(
+                    OrderHistory.Where(hist => hist.Name.ToLower().Contains(searchQuery)));
+
+                DisplayHistories(filteredProducts);
+            }
         }
 
-        /*// Event handler untuk ReviewButton
-        private void ReviewButton_Click(object sender, RoutedEventArgs e)
-        {
-            Review ulasan = new Review(GetLoggedInUserId(), _orderID);
-            ulasan.Show();
-            this.Hide();
-        }
-
-        // Event handler untuk RerentButton
-        private void RerentButton_Click(object sender, RoutedEventArgs e)
-        {
-            Checkout CO = new Checkout(_barang, GetLoggedInUserId());
-            CO.Show();
-            this.Hide();
-        }*/
     }
 }

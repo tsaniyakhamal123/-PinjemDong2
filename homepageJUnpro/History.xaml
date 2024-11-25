@@ -33,28 +33,39 @@ Background="#FFF2E2E4" BorderBrush="Transparent" FontSize="12" FontWeight="Bold"
                 </StackPanel>
 
                 <!-- Main Content -->
-                <StackPanel Grid.Row="1" Margin="20, 0, 20, 20">
-                    <!-- Search Bar -->
-                    <DockPanel Margin="10">
-                        <Grid Width="550" Height="30" DockPanel.Dock="Left">
-                            <!-- Search TextBox -->
-                            <TextBox VerticalAlignment="Top" TextChanged="SearchBox_TextChanged" Height="30" Margin="0,0,0,0" x:Name="SearchBox" />
-                            <!-- Placeholder Text -->
-                            <TextBlock Text="Cari transaksimu di sini..." Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" x:Name="PlaceholderText" Visibility="Visible" />
-                        </Grid>
-
-                        <Button DockPanel.Dock="Right" Width="50" Height="30" Background="#F6CAC9">
-                            <TextBlock Text="🔍" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        </Button>
-                    </DockPanel>
+                <Grid Margin="20, 0, 20, 20" Height="Auto" VerticalAlignment="Stretch">
+                    <!-- Place the TextBox and other UI elements here -->
+                    <TextBox Name="SearchBox" Width="300" Height="30" VerticalAlignment="Top"
+         HorizontalAlignment="Center" Margin="150,20,150,0" 
+         FontSize="14" Padding="10,0"
+         Background="#FFF2E2E4" BorderBrush="Transparent" TextChanged="SearchBox_TextChanged"
+         HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="#E6B7B9" 
+                                BorderThickness="1" 
+                                CornerRadius="15" 
+                                SnapsToDevicePixels="True">
+                                                <ScrollViewer x:Name="PART_ContentHost" Margin="5,0"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
 
                     <!-- Transaction List -->
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10,10,10,10">
-                        <StackPanel x:Name="ItemsPanel">
-                            
-                        </StackPanel>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,70,0,10">
+                        <WrapPanel x:Name="ItemsPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,10" Orientation="Vertical">
+
+                        </WrapPanel>
                     </ScrollViewer>
-                </StackPanel>
+                </Grid>
             </StackPanel>
         </StackPanel>
     </Grid>

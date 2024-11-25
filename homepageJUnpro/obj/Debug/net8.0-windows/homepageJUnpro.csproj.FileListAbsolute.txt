@@ -165,6 +165,10 @@ D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\
 D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\DetailProduk.g.cs
 D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\EditProductPage.g.cs
 D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\EditProductPage.baml
+<<<<<<< HEAD
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\HistoryDetail.g.cs
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\HistoryDetail.baml
+=======
 C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.csproj.AssemblyReference.cache
 C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\AdminPage.baml
 C:\Users\USER\Downloads\final wpf 1\homepageJUnpro\obj\Debug\net8.0-windows\DetailProduk.baml
@@ -363,3 +367,4 @@ C:\Users\USER\Downloads\final wpf 3\homepageJUnpro\obj\Debug\net8.0-windows\refi
 C:\Users\USER\Downloads\final wpf 3\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.pdb
 C:\Users\USER\Downloads\final wpf 3\homepageJUnpro\obj\Debug\net8.0-windows\homepageJUnpro.genruntimeconfig.cache
 C:\Users\USER\Downloads\final wpf 3\homepageJUnpro\obj\Debug\net8.0-windows\ref\homepageJUnpro.dll
+>>>>>>> 6edc910863f38d19e3edc89917ebc221910cfc7f

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\USER\Downloads\final wpf 3\homepageJUnpro\obj\Debug\net8.0-windows\
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\obj\Debug\net8.0-windows\
 homepageJUnpro
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\USER\Downloads\final wpf 3\homepageJUnpro\App.xaml
-13-710010232
+D:\Users\LENOVO\source\repos\PinjemDong\homepageJUnpro\App.xaml
+14-518234503
 
-251431600537
-202193758762
-Account.xaml;AdminLogin.xaml;AdminPage.xaml;BarangPemilik.xaml;Checkout.xaml;DetailProduk.xaml;EditProductPage.xaml;History.xaml;login.xaml;MainWindow.xaml;Review.xaml;sign in.xaml;TambahBarang.xaml;
+26-588500724
+202257633811
+Account.xaml;AdminLogin.xaml;AdminPage.xaml;BarangPemilik.xaml;Checkout.xaml;DetailProduk.xaml;EditProductPage.xaml;History.xaml;HistoryDetail.xaml;login.xaml;MainWindow.xaml;Review.xaml;sign in.xaml;TambahBarang.xaml;
 
-False
+True
 
